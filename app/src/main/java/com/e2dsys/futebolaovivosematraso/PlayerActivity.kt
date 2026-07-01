@@ -23,7 +23,6 @@ class PlayerActivity : AppCompatActivity() {
         private const val MODE_BALANCED = 2
         private const val MODE_AGGRESSIVE = 3
         private const val JS_INTERVAL_MS = 500L
-        private const val BANNER_HIDE_DELAY_MS = 10000L
     }
 
     private val mainHandler = Handler(Looper.getMainLooper())
@@ -235,6 +234,17 @@ class PlayerActivity : AppCompatActivity() {
                         return speed;
                     },
                     
+                    liveHoldTick: 0,
+                    
+                    forceSeekToLive: function() {
+                        try {
+                            if (ZD.caps && ZD.caps.seekLive) {
+                                ZD.player.seekToLiveHead();
+                                if (ZD.caps.playVideo) ZD.player.playVideo();
+                            }
+                        } catch(e) { /* fail silently */ }
+                    },
+                    
                     tick: function() {
                         try {
                             if (!ZD.player) {
@@ -269,6 +279,15 @@ class PlayerActivity : AppCompatActivity() {
                             }
                             
                             ZD.skipIfOverThreshold(ZD.lastLatency);
+                            
+                            // Re-seek to live every ~5s (10 ticks) to keep the AO VIVO badge active
+                            ZD.liveHoldTick++;
+                            if (ZD.liveHoldTick >= 10) {
+                                ZD.liveHoldTick = 0;
+                                if (!ZD.isAtLiveHead && ZD.lastLatency > 5) {
+                                    ZD.forceSeekToLive();
+                                }
+                            }
                             
                             ZeroDelayBridge.onTick(
                                 ZD.lastSpeed,
@@ -332,17 +351,15 @@ class PlayerActivity : AppCompatActivity() {
 
                 if (actualSpeed > 1.01) {
                     banner.text = "⚡ $modeInfo • atraso ${actualLatency}s • buffer ${actualHealth}s"
-                    banner.visibility = View.VISIBLE
-                    mainHandler.removeCallbacks(hideBannerRunnable)
+                    banner.setBackgroundColor(0xCCFF6600.toInt())
                 } else if (isAtLiveHead && actualLatency <= 10) {
                     banner.text = "✅ AO VIVO • $modeInfo • atraso ${actualLatency}s"
-                    banner.visibility = View.VISIBLE
-                    mainHandler.removeCallbacks(hideBannerRunnable)
-                    mainHandler.postDelayed(hideBannerRunnable, BANNER_HIDE_DELAY_MS)
+                    banner.setBackgroundColor(0xCC00AA00.toInt())
                 } else {
                     banner.text = "⏱️ $modeInfo • atraso ${actualLatency}s • buffer ${actualHealth}s"
-                    banner.visibility = View.VISIBLE
+                    banner.setBackgroundColor(0xCC000000.toInt())
                 }
+                banner.visibility = View.VISIBLE
             }
         }
 
@@ -350,12 +367,6 @@ class PlayerActivity : AppCompatActivity() {
         fun setMode(mode: Int) {
             if (webViewGone) return
             switchMode(mode)
-        }
-    }
-
-    private val hideBannerRunnable = Runnable {
-        if (!webViewGone) {
-            findViewById<TextView>(R.id.speedBanner)?.visibility = View.GONE
         }
     }
 
