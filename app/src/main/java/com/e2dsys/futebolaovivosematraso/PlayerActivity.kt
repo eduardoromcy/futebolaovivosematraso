@@ -35,7 +35,7 @@ class PlayerActivity : AppCompatActivity() {
 
     private val mainHandler = Handler(Looper.getMainLooper())
     private var engineRunning = false
-    private var currentMode = MODE_BALANCED
+    private var currentMode = MODE_AGGRESSIVE
     private var webViewGone = false
     private var customView: View? = null
     private var customViewCallback: WebChromeClient.CustomViewCallback? = null
