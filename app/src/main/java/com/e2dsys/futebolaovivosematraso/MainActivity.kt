@@ -342,7 +342,7 @@ fun StreamCard(stream: LiveStreamItem, onClick: () -> Unit) {
     }
 }
 
-private fun formatCount(count: Long): String {
+internal fun formatCount(count: Long): String {
     return when {
         count >= 1_000_000 -> "${count / 1_000_000}mi"
         count >= 1_000 -> "${count / 1_000}mil"

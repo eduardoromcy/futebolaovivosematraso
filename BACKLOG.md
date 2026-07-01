@@ -23,13 +23,21 @@
 - [x] `webViewGone` flag + lifecycle management (`onPause`/`onResume`/`onDestroy`)
 - [x] `setSpeed(1.0)` no `onPause`
 
-### Tela Principal (MainActivity.kt)
+### Tela Principal Smartphone (MainActivity.kt)
 
 - [x] Lista de streams via Jetpack Compose + LazyColumn
 - [x] Pull-to-refresh (`PullToRefreshBox`) na lista
 - [x] Card por stream com: indicador vermelho, título, view count, badge "⚡0 ATRASO"
 - [x] Dialog para URL customizada
 - [x] Loading spinner + estado de erro com retry
+
+### Android TV (TvMainActivity.kt)
+
+- [x] Activity dedicada via Leanback (`VerticalGridView`)
+- [x] Grade de streams navegável por D-pad (3 colunas)
+- [x] Loading spinner + estado de erro com retry
+- [x] View count nos cards da stream
+- [x] Manifest com `leanback required=false` (mesmo APK pra phone e TV)
 
 ### Scraper (YouTubeChannelScraper.kt)
 
@@ -66,12 +74,11 @@ Repo de referência: [yudai-tiny-developer/live-catch-up](https://github.com/yud
 | **Stream ended** | ❌ | ✅ detecta |
 | **Timestamp copy** | ❌ | ✅ |
 | **Persistence** | ❌ | ✅ chrome.storage |
+| **Android TV** | ✅ Leanback nativo | ❌ extensão Chrome |
 
 ### Resumo
 
-Nossa engine é **praticamente idêntica** à extensão agora: ambas usam buffer-based com threshold auto-ajustado por `segduration`. Nossa vantagem principal é usar `player.setPlaybackRate()` que funciona com SABR, enquanto a extensão usa `video.playbackRate` que é ignorado pelo YouTube moderno.
-
-A extensão ainda tem vantagens em: UI integrada ao player, stream ended detection, configuração persistente.
+Nossa engine é **praticamente idêntica** à extensão agora: ambas usam buffer-based com threshold auto-ajustado por `segduration`. Nossa vantagem principal é usar `player.setPlaybackRate()` que funciona com SABR, enquanto a extensão usa `video.playbackRate` que é ignorado pelo YouTube moderno. Também temos suporte a Android TV que a extensão não tem.
 
 ## Sugestões futuras
 
@@ -90,8 +97,6 @@ A extensão ainda tem vantagens em: UI integrada ao player, stream ended detecti
 5. **Múltiplos canais** — permitir configurar mais de um canal e alternar entre eles.
 
 6. **Notificação persistente** — mostrar status atual (modo, latência) numa notificação da barra de status.
-
-7. **Suporte a landscape** — garantir que o overlay de modo funciona bem em rotação.
 
 ## Próximos passos
 

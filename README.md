@@ -1,6 +1,6 @@
 # Futebol Ao Vivo Sem Atraso ⚽⚡
 
-App Android que renderiza lives do YouTube com **atraso mínimo**, usando um WebView com engine de catch-up adaptativa.
+App Android (smartphone + TV) que renderiza lives do YouTube com **atraso mínimo**, usando um WebView com engine de catch-up adaptativa.
 
 ## Como funciona
 
@@ -24,6 +24,13 @@ buffer < threshold  → 1.0x (deixa o buffer encher)
 - **3 modos de velocidade**: Suave (1.1x), Equilibrado (1.25x), Agressivo (1.5x)
 - **2 status no banner**: ⚡ Acelerando, ⏳ Aguardando buffer
 
+### Android TV
+
+- Suporte nativo via Leanback (`TvMainActivity`)
+- Grade de streams navegável por D-pad
+- Loading, erro e retry completos
+- Mesma engine de catch-up do smartphone
+
 ## Build
 
 ```
@@ -34,7 +41,8 @@ O APK assinado estará em `app/build/outputs/apk/release/app-release.apk`.
 
 ## Tecnologias
 
-- Kotlin + Jetpack Compose (tela principal com pull-to-refresh)
+- Kotlin + Jetpack Compose (smartphone)
+- Kotlin + Leanback (Android TV)
 - Android WebView (player)
 - NewPipe Extractor (descoberta de streams)
 - Gradle KTS + version catalog

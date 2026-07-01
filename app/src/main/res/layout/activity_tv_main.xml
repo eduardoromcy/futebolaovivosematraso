@@ -15,6 +15,33 @@
         android:textSize="28sp"
         android:layout_gravity="top|start" />
 
+    <ProgressBar
+        android:id="@+id/loadingIndicator"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_gravity="center"
+        android:indeterminateTint="@color/secondary" />
+
+    <TextView
+        android:id="@+id/errorText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:visibility="gone"
+        android:gravity="center"
+        android:padding="32dp" />
+
+    <Button
+        android:id="@+id/retryButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="80dp"
+        android:text="Tentar novamente"
+        android:visibility="gone" />
+
     <androidx.leanback.widget.VerticalGridView
         android:id="@+id/gridView"
         android:layout_width="match_parent"
@@ -22,6 +49,7 @@
         android:layout_marginTop="80dp"
         android:layout_marginStart="24dp"
         android:layout_marginEnd="24dp"
-        android:layout_marginBottom="24dp" />
+        android:layout_marginBottom="24dp"
+        android:visibility="gone" />
 
 </FrameLayout>

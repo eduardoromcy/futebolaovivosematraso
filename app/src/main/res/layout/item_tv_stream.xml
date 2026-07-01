@@ -24,6 +24,15 @@
             android:ellipsize="end" />
 
         <TextView
+            android:id="@+id/viewCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="13sp"
+            android:layout_marginTop="4dp"
+            android:visibility="gone" />
+
+        <TextView
             android:id="@+id/liveBadge"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
