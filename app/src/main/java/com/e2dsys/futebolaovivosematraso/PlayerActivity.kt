@@ -1,16 +1,20 @@
 package com.e2dsys.futebolaovivosematraso
 
 import android.annotation.SuppressLint
+import android.content.res.Configuration
 import android.graphics.Bitmap
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.view.View
+import android.view.ViewGroup
+import android.view.WindowManager
 import android.webkit.JavascriptInterface
 import android.webkit.WebChromeClient
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.Button
+import android.widget.FrameLayout
 import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
@@ -29,6 +33,8 @@ class PlayerActivity : AppCompatActivity() {
     private var engineRunning = false
     private var currentMode = MODE_BALANCED
     private var webViewGone = false
+    private var customView: View? = null
+    private var customViewCallback: WebChromeClient.CustomViewCallback? = null
 
     private val engineRunnable = object : Runnable {
         override fun run() {
@@ -100,6 +106,30 @@ class PlayerActivity : AppCompatActivity() {
         webView.webChromeClient = object : WebChromeClient() {
             override fun onProgressChanged(view: WebView?, newProgress: Int) {
                 progressBar.visibility = if (newProgress < 100) View.VISIBLE else View.GONE
+            }
+
+            override fun onShowCustomView(view: View?, callback: CustomViewCallback?) {
+                if (customView != null) {
+                    callback?.onCustomViewHidden()
+                    return
+                }
+                customView = view
+                customViewCallback = callback
+                val container = findViewById<ViewGroup>(android.R.id.content)
+                container.addView(view, ViewGroup.LayoutParams(
+                    ViewGroup.LayoutParams.MATCH_PARENT,
+                    ViewGroup.LayoutParams.MATCH_PARENT
+                ))
+                findViewById<View>(R.id.topOverlay).visibility = View.GONE
+                window.decorView.systemUiVisibility = (
+                    View.SYSTEM_UI_FLAG_FULLSCREEN or
+                    View.SYSTEM_UI_FLAG_HIDE_NAVIGATION or
+                    View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+                )
+            }
+
+            override fun onHideCustomView() {
+                hideCustomView()
             }
         }
 
@@ -204,6 +234,16 @@ class PlayerActivity : AppCompatActivity() {
                         } catch(e) { /* fail silently */ }
                     },
                     
+                    chatTickCounter: 0,
+                    
+                    hideChat: function() {
+                        try {
+                            var btn = document.querySelector('ytd-live-chat-frame #close-button button, #close-button, ytd-live-chat-frame [aria-label="Close"], ytd-live-chat-frame [aria-label="Fechar"]');
+                            if (btn) { btn.click(); return true; }
+                        } catch(e) {}
+                        return false;
+                    },
+                    
                     tick: function() {
                         try {
                             if (!ZD.player) {
@@ -249,6 +289,13 @@ class PlayerActivity : AppCompatActivity() {
                                 }
                             }
                             
+                            // Auto-close chat every ~5s so fullscreen uses full width
+                            ZD.chatTickCounter++;
+                            if (ZD.chatTickCounter >= 20) {
+                                ZD.chatTickCounter = 0;
+                                ZD.hideChat();
+                            }
+                            
                             var status = 'synced';
                             var estimatedSecs = 0;
                             if (desired > 1.01) {
@@ -290,6 +337,7 @@ class PlayerActivity : AppCompatActivity() {
                         ZD.caps = ZD.probeCaps(p);
                         if (ZD.caps) {
                             clearInterval(detectInterval);
+                            ZD.hideChat();
                             ZeroDelayBridge.onReady();
                         }
                     }
@@ -350,6 +398,7 @@ class PlayerActivity : AppCompatActivity() {
 
     override fun onPause() {
         super.onPause()
+        if (customView != null) hideCustomView()
         engineRunning = false
         mainHandler.removeCallbacks(engineRunnable)
         findViewById<WebView>(R.id.youtubeWebView)?.apply {
@@ -379,9 +428,22 @@ class PlayerActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
+        if (customView != null) {
+            hideCustomView()
+            return
+        }
         webViewGone = true
         engineRunning = false
         mainHandler.removeCallbacksAndMessages(null)
         super.onBackPressed()
+    }
+
+    private fun hideCustomView() {
+        customView?.let { findViewById<ViewGroup>(android.R.id.content)?.removeView(it) }
+        customViewCallback?.onCustomViewHidden()
+        customView = null
+        customViewCallback = null
+        findViewById<View>(R.id.topOverlay).visibility = View.VISIBLE
+        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_VISIBLE
     }
 }
