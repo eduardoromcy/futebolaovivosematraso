@@ -22,7 +22,7 @@ class PlayerActivity : AppCompatActivity() {
         private const val MODE_GENTLE = 1
         private const val MODE_BALANCED = 2
         private const val MODE_AGGRESSIVE = 3
-        private const val JS_INTERVAL_MS = 500L
+        private const val JS_INTERVAL_MS = 250L
     }
 
     private val mainHandler = Handler(Looper.getMainLooper())
@@ -75,7 +75,7 @@ class PlayerActivity : AppCompatActivity() {
     private fun switchMode(mode: Int) {
         val webView = findViewById<WebView>(R.id.youtubeWebView) ?: return
         webView.evaluateJavascript(
-            "if(window.__zeroDelay) { window.__zeroDelay.mode = $mode; window.__zeroDelay.phase = 'init'; window.__zeroDelay.phaseTick = 0; }",
+            "if(window.__zeroDelay) { window.__zeroDelay.mode = $mode; }",
             null
         )
     }
@@ -137,10 +137,6 @@ class PlayerActivity : AppCompatActivity() {
                     currentTime: 0,
                     mode: $currentMode,
                     
-                    // Burst cycle: accel then rest, repeat
-                    phase: 'init',   // 'init', 'accel', 'rest'
-                    phaseTick: 0,
-                    
                     getModeSpeed: function(mode) {
                         if (mode === 1) return 1.1;
                         if (mode === 3) return 1.5;
@@ -151,36 +147,6 @@ class PlayerActivity : AppCompatActivity() {
                         if (mode === 1) return "Suave";
                         if (mode === 3) return "Agressivo";
                         return "Equilibrado";
-                    },
-                    
-                    getSegDuration: function() {
-                        try {
-                            var stats = ZD.player.getVideoStats ? ZD.player.getVideoStats() : null;
-                            if (stats && stats.segduration) return stats.segduration;
-                            var resp = ZD.player.getPlayerResponse ? ZD.player.getPlayerResponse() : null;
-                            if (resp && resp.videoDetails) {
-                                var lc = resp.videoDetails.latencyClass;
-                                if (lc === 'MDE_STREAM_OPTIMIZATIONS_RENDERER_LATENCY_ULTRA_LOW') return 1;
-                                if (lc === 'MDE_STREAM_OPTIMIZATIONS_RENDERER_LATENCY_LOW') return 2;
-                            }
-                            return 5;
-                        } catch(e) { return 5; }
-                    },
-                    
-                    getDurationScale: function() {
-                        var seg = ZD.getSegDuration();
-                        return Math.max(0.5, Math.min(1.0, 0.3 + 0.7 * seg / 5.0));
-                    },
-                    
-                    getAccelTicks: function(mode) {
-                        var base = 20;
-                        if (mode === 1) base = 30;
-                        if (mode === 3) base = 12;
-                        return Math.round(base * ZD.getDurationScale());
-                    },
-                    
-                    getRestTicks: function(mode) {
-                        return Math.round(10 * ZD.getDurationScale());
                     },
                     
                     findPlayer: function() {
@@ -246,51 +212,37 @@ class PlayerActivity : AppCompatActivity() {
                                 }
                             }
                             
-                            // --- Burst cycle state machine ---
+                            // Catch-up: accelerate whenever behind live, no buffer threshold
                             var maxSpeed = ZD.getModeSpeed(ZD.mode);
+                            var desired = 1.0;
                             
-                            if (ZD.phase === 'init') {
-                                // First tick: go to live and start resting
-                                ZD.seekToLive();
-                                ZD.setSpeed(1.0);
-                                ZD.lastSpeed = 1.0;
-                                ZD.phase = 'rest';
-                                ZD.phaseTick = 0;
-                                
-                            } else if (ZD.phase === 'accel') {
-                                ZD.setSpeed(maxSpeed);
-                                ZD.lastSpeed = maxSpeed;
-                                ZD.phaseTick++;
-                                // Safety net: if delay exceeds 30s, seek to live immediately
+                            if (ZD.lastHealth < 1.0) {
+                                desired = 1.0;  // safety: prevent buffering
+                            } else if (!ZD.isAtLiveHead) {
+                                desired = maxSpeed;
+                            }
+                            
+                            ZD.setSpeed(desired);
+                            ZD.lastSpeed = desired;
+                            
+                            // Safety net: if delay exceeds 30s, seek to live once
+                            if (ZD.seekableEnd > 0 && ZD.currentTime > 0) {
+                                var delay = ZD.seekableEnd - ZD.currentTime;
+                                if (delay > 30) {
+                                    ZD.seekToLive();
+                                }
+                            }
+                            
+                            var status = 'synced';
+                            var estimatedSecs = 0;
+                            if (desired > 1.01) {
+                                status = 'catching_up';
                                 if (ZD.seekableEnd > 0 && ZD.currentTime > 0) {
                                     var delay = ZD.seekableEnd - ZD.currentTime;
-                                    if (delay > 30) {
-                                        ZD.seekToLive();
-                                        ZD.phase = 'rest';
-                                        ZD.phaseTick = 0;
-                                        ZD.setSpeed(1.0);
-                                        ZD.lastSpeed = 1.0;
-                                    }
+                                    estimatedSecs = Math.round(delay / (desired - 1.0));
                                 }
-                                if (ZD.phase === 'accel' && ZD.phaseTick >= ZD.getAccelTicks(ZD.mode)) {
-                                    ZD.phase = 'rest';
-                                    ZD.phaseTick = 0;
-                                    ZD.seekToLive();
-                                    ZD.setSpeed(1.0);
-                                    ZD.lastSpeed = 1.0;
-                                }
-                                
-                            } else if (ZD.phase === 'rest') {
-                                ZD.lastSpeed = 1.0;
-                                ZD.phaseTick++;
-                                // Re-seek to live every 3 ticks during rest to keep badge active
-                                if (ZD.phaseTick % 6 === 0) {
-                                    ZD.seekToLive();
-                                }
-                                if (ZD.phaseTick >= ZD.getRestTicks(ZD.mode)) {
-                                    ZD.phase = 'accel';
-                                    ZD.phaseTick = 0;
-                                }
+                            } else if (!ZD.isAtLiveHead || ZD.lastLatency >= 3.0) {
+                                status = 'waiting';
                             }
                             
                             ZeroDelayBridge.onTick(
@@ -300,7 +252,8 @@ class PlayerActivity : AppCompatActivity() {
                                 ZD.isAtLiveHead,
                                 ZD.mode,
                                 ZD.getModeLabel(ZD.mode),
-                                ZD.phase
+                                status,
+                                estimatedSecs
                             );
                         } catch(e) {
                             ZD.tickErrors++;
@@ -343,7 +296,7 @@ class PlayerActivity : AppCompatActivity() {
         }
 
         @JavascriptInterface
-        fun onTick(speed: Double, latency: Double, health: Double, isAtLiveHead: Boolean, mode: Int, modeLabel: String, phase: String) {
+        fun onTick(speed: Double, latency: Double, health: Double, isAtLiveHead: Boolean, mode: Int, modeLabel: String, status: String, estimatedSecs: Double) {
             if (webViewGone) return
             mainHandler.post {
                 val banner = findViewById<TextView>(R.id.speedBanner) ?: return@post
@@ -352,19 +305,21 @@ class PlayerActivity : AppCompatActivity() {
                 val actualHealth = Math.round(health * 10.0) / 10.0
 
                 val displaySpeed = if (actualSpeed <= 1.01) "1.0x" else "${actualSpeed}x"
-                val phaseIcon = if (phase == "accel") "⚡" else if (phase == "rest") "⏳" else "▶️"
-                val modeInfo = "$phaseIcon $modeLabel • $displaySpeed"
 
-                if (phase == "accel") {
-                    banner.text = "⚡ ACELERANDO • ${displaySpeed} • atraso ${actualLatency}s • buffer ${actualHealth}s"
-                    banner.setBackgroundColor(0xCCFF6600.toInt())
-                } else if (phase == "rest") {
-                    val liveStatus = if (isAtLiveHead) "✅ AO VIVO" else "⏱️ atraso ${actualLatency}s"
-                    banner.text = "⏳ REPOUSO • $liveStatus • buffer ${actualHealth}s"
-                    banner.setBackgroundColor(0xCC0088CC.toInt())
-                } else {
-                    banner.text = "▶️ INICIANDO • $modeLabel"
-                    banner.setBackgroundColor(0xCC000000.toInt())
+                when (status) {
+                    "catching_up" -> {
+                        val eta = if (estimatedSecs > 0) " • chegando ~${estimatedSecs}s" else ""
+                        banner.text = "⚡ ACELERANDO • ${displaySpeed} • atraso ${actualLatency}s$eta"
+                        banner.setBackgroundColor(0xCCFF6600.toInt())
+                    }
+                    "synced" -> {
+                        banner.text = "✅ AO VIVO • $modeLabel • ${displaySpeed} • atraso ${actualLatency}s"
+                        banner.setBackgroundColor(0xCC00AA00.toInt())
+                    }
+                    else -> {
+                        banner.text = "⏳ AGUARDANDO • $modeLabel • buffer ${actualHealth}s • atraso ${actualLatency}s"
+                        banner.setBackgroundColor(0xCC000000.toInt())
+                    }
                 }
                 banner.visibility = View.VISIBLE
             }
