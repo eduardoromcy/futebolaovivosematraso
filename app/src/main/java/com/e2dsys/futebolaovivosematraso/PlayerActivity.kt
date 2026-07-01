@@ -327,14 +327,6 @@ class PlayerActivity : AppCompatActivity() {
                         ZD.caps = ZD.probeCaps(p);
                         if (ZD.caps) {
                             clearInterval(detectInterval);
-                            // Force default view if YouTube entered theater mode
-                            try {
-                                var tb = document.querySelector('.ytp-size-button');
-                                if (tb && ZD.player.getPlayerStateObject) {
-                                    var st = ZD.player.getPlayerStateObject();
-                                    if (st && st.theaterMode) tb.click();
-                                }
-                            } catch(e) {}
                             ZeroDelayBridge.onReady();
                         }
                     }
