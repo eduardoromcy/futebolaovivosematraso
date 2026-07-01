@@ -1,10 +1,26 @@
+*.apk
+*.ap_
+*.aab
+*.dex
+*.class
 *.iml
-.gradle
-/local.properties
-/.idea
-.DS_Store
-/build
-/captures
-.externalNativeBuild
-.cxx
+*.log
+*.tflite
+*.hprof
+
+# Gradle
+.gradle/
+build/
 local.properties
+
+# IDE
+.idea/
+*.iws
+*.ipr
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Signing
+*.keystore
