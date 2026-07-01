@@ -76,6 +76,13 @@ class PlayerActivity : AppCompatActivity() {
                 switchMode(mode)
             }
         }
+        findViewById<Button>(R.id.fullscreenButton).setOnClickListener {
+            val wv = findViewById<WebView>(R.id.youtubeWebView) ?: return@setOnClickListener
+            wv.evaluateJavascript(
+                "(function(){var b=document.querySelector('.ytp-fullscreen-button');if(b)b.click();})()",
+                null
+            )
+        }
     }
 
     private fun switchMode(mode: Int) {
@@ -320,7 +327,14 @@ class PlayerActivity : AppCompatActivity() {
                         ZD.caps = ZD.probeCaps(p);
                         if (ZD.caps) {
                             clearInterval(detectInterval);
-                            ZD.hideChat();
+                            // Force default view if YouTube entered theater mode
+                            try {
+                                var tb = document.querySelector('.ytp-size-button');
+                                if (tb && ZD.player.getPlayerStateObject) {
+                                    var st = ZD.player.getPlayerStateObject();
+                                    if (st && st.theaterMode) tb.click();
+                                }
+                            } catch(e) {}
                             ZeroDelayBridge.onReady();
                         }
                     }
