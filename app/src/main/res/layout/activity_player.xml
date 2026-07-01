@@ -103,4 +103,15 @@
 
     </LinearLayout>
 
+    <ImageView
+        android:id="@+id/watermark"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="12dp"
+        android:src="@drawable/logotipo"
+        android:scaleType="fitCenter"
+        android:adjustViewBounds="true"
+        android:visibility="gone" />
+
 </FrameLayout>

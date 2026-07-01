@@ -15,6 +15,7 @@ import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.Button
 import android.widget.FrameLayout
+import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
@@ -60,6 +61,14 @@ class PlayerActivity : AppCompatActivity() {
 
         setupModeButtons()
         setupWebView(webView, progressBar, youtubeUrl)
+
+        val wm = findViewById<ImageView>(R.id.watermark)
+        val disp = resources.displayMetrics
+        wm.layoutParams = wm.layoutParams.apply {
+            width = (disp.widthPixels * 0.25).toInt()
+            height = ViewGroup.LayoutParams.WRAP_CONTENT
+        }
+        wm.visibility = View.VISIBLE
     }
 
     private fun setupModeButtons() {
