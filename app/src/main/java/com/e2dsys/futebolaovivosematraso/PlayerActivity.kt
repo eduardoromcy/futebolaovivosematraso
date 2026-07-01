@@ -52,6 +52,7 @@ class PlayerActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_player)
+        window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
 
         val youtubeUrl = intent.getStringExtra("video_url") ?: run {
             Toast.makeText(this, "URL não fornecida", Toast.LENGTH_SHORT).show()
