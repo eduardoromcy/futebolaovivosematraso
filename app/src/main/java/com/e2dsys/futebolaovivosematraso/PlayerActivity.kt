@@ -75,7 +75,7 @@ class PlayerActivity : AppCompatActivity() {
     private fun switchMode(mode: Int) {
         val webView = findViewById<WebView>(R.id.youtubeWebView) ?: return
         webView.evaluateJavascript(
-            "if(window.__zeroDelay) { window.__zeroDelay.mode = $mode; window.__zeroDelay.bufferEma = null; }",
+            "if(window.__zeroDelay) { window.__zeroDelay.mode = $mode; window.__zeroDelay.phase = 'init'; window.__zeroDelay.phaseTick = 0; }",
             null
         )
     }
@@ -128,25 +128,18 @@ class PlayerActivity : AppCompatActivity() {
                 var ZD = {
                     player: null,
                     caps: null,
-                    appliedRate: 1.0,
-                    yieldedToUser: false,
-                    bufferEma: null,
-                    catchingUp: false,
                     tickErrors: 0,
                     lastSpeed: 1.0,
                     lastLatency: 0,
                     lastHealth: 0,
+                    isAtLiveHead: false,
                     seekableEnd: 0,
                     currentTime: 0,
-                    isAtLiveHead: false,
                     mode: $currentMode,
                     
-                    WARN_BUFFER: 2.5,
-                    BUFFER_FLOOR: 1.5,
-                    BUFFER_BACKOFF: 2.5,
-                    BUFFER_RESUME: 4.0,
-                    CATCH_UP_BAND: 1.5,
-                    MIN_LATENCY: 2.0,
+                    // Burst cycle: accel then rest, repeat
+                    phase: 'init',   // 'init', 'accel', 'rest'
+                    phaseTick: 0,
                     
                     getModeSpeed: function(mode) {
                         if (mode === 1) return 1.1;
@@ -160,10 +153,34 @@ class PlayerActivity : AppCompatActivity() {
                         return "Equilibrado";
                     },
                     
-                    getSkipThreshold: function(mode) {
-                        if (mode === 1) return 60;
-                        if (mode === 3) return 15;
-                        return 30;
+                    getSegDuration: function() {
+                        try {
+                            var stats = ZD.player.getVideoStats ? ZD.player.getVideoStats() : null;
+                            if (stats && stats.segduration) return stats.segduration;
+                            var resp = ZD.player.getPlayerResponse ? ZD.player.getPlayerResponse() : null;
+                            if (resp && resp.videoDetails) {
+                                var lc = resp.videoDetails.latencyClass;
+                                if (lc === 'MDE_STREAM_OPTIMIZATIONS_RENDERER_LATENCY_ULTRA_LOW') return 1;
+                                if (lc === 'MDE_STREAM_OPTIMIZATIONS_RENDERER_LATENCY_LOW') return 2;
+                            }
+                            return 5;
+                        } catch(e) { return 5; }
+                    },
+                    
+                    getDurationScale: function() {
+                        var seg = ZD.getSegDuration();
+                        return Math.max(0.5, Math.min(1.0, 0.3 + 0.7 * seg / 5.0));
+                    },
+                    
+                    getAccelTicks: function(mode) {
+                        var base = 20;
+                        if (mode === 1) base = 30;
+                        if (mode === 3) base = 12;
+                        return Math.round(base * ZD.getDurationScale());
+                    },
+                    
+                    getRestTicks: function(mode) {
+                        return Math.round(10 * ZD.getDurationScale());
                     },
                     
                     findPlayer: function() {
@@ -179,65 +196,23 @@ class PlayerActivity : AppCompatActivity() {
                                 setRate: typeof p.setPlaybackRate === 'function',
                                 getRate: typeof p.getPlaybackRate === 'function',
                                 seekLive: typeof p.seekToLiveHead === 'function',
-                                playVideo: typeof p.playVideo === 'function',
-                                stateObject: typeof p.getPlayerStateObject === 'function'
+                                playVideo: typeof p.playVideo === 'function'
                             };
                         } catch(e) { return null; }
                     },
                     
-                    applyPlaybackRate: function(desired) {
+                    setSpeed: function(rate) {
                         try {
-                            if (!ZD.player || !ZD.caps || !ZD.caps.setRate || !ZD.caps.getRate) return;
-                            var cur = ZD.player.getPlaybackRate();
-                            if (Math.abs(cur - ZD.appliedRate) > 0.01) {
-                                if (Math.abs(cur - 1.0) < 0.01) {
-                                    ZD.appliedRate = 1.0;
-                                    ZD.yieldedToUser = false;
-                                } else {
-                                    ZD.yieldedToUser = true;
-                                    ZD.appliedRate = cur;
-                                }
-                            }
-                            if (ZD.yieldedToUser) return;
-                            if (Math.abs(desired - ZD.appliedRate) > 0.01) {
-                                ZD.player.setPlaybackRate(desired);
-                                ZD.appliedRate = desired;
-                            }
-                        } catch(e) { /* fail silently */ }
-                    },
-                    
-                    skipIfOverThreshold: function(latency) {
-                        try {
-                            if (!ZD.caps || !ZD.caps.seekLive || !ZD.caps.stateObject) return;
-                            var threshold = ZD.getSkipThreshold(ZD.mode);
-                            if (ZD.player && latency >= threshold) {
-                                var state = ZD.player.getPlayerStateObject();
-                                if (state && state.isPlaying) {
-                                    ZD.player.seekToLiveHead();
-                                    if (ZD.caps.playVideo) ZD.player.playVideo();
-                                    ZD.bufferEma = null;
-                                    ZD.catchingUp = false;
+                            if (ZD.caps && ZD.caps.setRate && ZD.caps.getRate) {
+                                var cur = ZD.player.getPlaybackRate();
+                                if (Math.abs(rate - cur) > 0.01) {
+                                    ZD.player.setPlaybackRate(rate);
                                 }
                             }
                         } catch(e) { /* fail silently */ }
                     },
                     
-                    calcPlaybackRate: function(speed, latency, health) {
-                        if (!isFinite(health) || !isFinite(latency)) return 1.0;
-                        ZD.bufferEma = ZD.bufferEma === null ? health : ZD.bufferEma * 0.9 + health * 0.1;
-                        if (latency < ZD.MIN_LATENCY) return 1.0;
-                        var target = 6.0;
-                        if (ZD.bufferEma > target + ZD.CATCH_UP_BAND) ZD.catchingUp = true;
-                        else if (ZD.bufferEma <= target) ZD.catchingUp = false;
-                        if (!ZD.catchingUp) return 1.0;
-                        if (health < ZD.BUFFER_FLOOR) return 1.0;
-                        return speed;
-                    },
-                    
-                    seekTick: 0,
-                    firstSeekDone: false,
-                    
-                    forceSeekToLive: function() {
+                    seekToLive: function() {
                         try {
                             if (ZD.caps && ZD.caps.seekLive) {
                                 ZD.player.seekToLiveHead();
@@ -254,7 +229,6 @@ class PlayerActivity : AppCompatActivity() {
                                 ZD.caps = ZD.probeCaps(ZD.player);
                                 if (!ZD.caps) return;
                             }
-                            
                             if (!ZD.caps.stats) return;
                             
                             var stats = ZD.player.getStatsForNerds();
@@ -272,25 +246,50 @@ class PlayerActivity : AppCompatActivity() {
                                 }
                             }
                             
-                            if (ZD.caps.setRate && ZD.caps.getRate) {
-                                var speed = ZD.getModeSpeed(ZD.mode);
-                                var desired = ZD.calcPlaybackRate(speed, ZD.lastLatency, ZD.lastHealth);
-                                ZD.applyPlaybackRate(desired);
-                                ZD.lastSpeed = desired;
-                            }
+                            // --- Burst cycle state machine ---
+                            var maxSpeed = ZD.getModeSpeed(ZD.mode);
                             
-                            ZD.skipIfOverThreshold(ZD.lastLatency);
-                            
-                            // Force ao vivo immediately on first tick, then every ~3s
-                            if (!ZD.firstSeekDone) {
-                                ZD.firstSeekDone = true;
-                                ZD.seekTick = 0;
-                                ZD.forceSeekToLive();
-                            } else {
-                                ZD.seekTick++;
-                                if (ZD.seekTick >= 6) {
-                                    ZD.seekTick = 0;
-                                    ZD.forceSeekToLive();
+                            if (ZD.phase === 'init') {
+                                // First tick: go to live and start resting
+                                ZD.seekToLive();
+                                ZD.setSpeed(1.0);
+                                ZD.lastSpeed = 1.0;
+                                ZD.phase = 'rest';
+                                ZD.phaseTick = 0;
+                                
+                            } else if (ZD.phase === 'accel') {
+                                ZD.setSpeed(maxSpeed);
+                                ZD.lastSpeed = maxSpeed;
+                                ZD.phaseTick++;
+                                // Safety net: if delay exceeds 30s, seek to live immediately
+                                if (ZD.seekableEnd > 0 && ZD.currentTime > 0) {
+                                    var delay = ZD.seekableEnd - ZD.currentTime;
+                                    if (delay > 30) {
+                                        ZD.seekToLive();
+                                        ZD.phase = 'rest';
+                                        ZD.phaseTick = 0;
+                                        ZD.setSpeed(1.0);
+                                        ZD.lastSpeed = 1.0;
+                                    }
+                                }
+                                if (ZD.phase === 'accel' && ZD.phaseTick >= ZD.getAccelTicks(ZD.mode)) {
+                                    ZD.phase = 'rest';
+                                    ZD.phaseTick = 0;
+                                    ZD.seekToLive();
+                                    ZD.setSpeed(1.0);
+                                    ZD.lastSpeed = 1.0;
+                                }
+                                
+                            } else if (ZD.phase === 'rest') {
+                                ZD.lastSpeed = 1.0;
+                                ZD.phaseTick++;
+                                // Re-seek to live every 3 ticks during rest to keep badge active
+                                if (ZD.phaseTick % 6 === 0) {
+                                    ZD.seekToLive();
+                                }
+                                if (ZD.phaseTick >= ZD.getRestTicks(ZD.mode)) {
+                                    ZD.phase = 'accel';
+                                    ZD.phaseTick = 0;
                                 }
                             }
                             
@@ -300,7 +299,8 @@ class PlayerActivity : AppCompatActivity() {
                                 ZD.lastHealth,
                                 ZD.isAtLiveHead,
                                 ZD.mode,
-                                ZD.getModeLabel(ZD.mode)
+                                ZD.getModeLabel(ZD.mode),
+                                ZD.phase
                             );
                         } catch(e) {
                             ZD.tickErrors++;
@@ -343,7 +343,7 @@ class PlayerActivity : AppCompatActivity() {
         }
 
         @JavascriptInterface
-        fun onTick(speed: Double, latency: Double, health: Double, isAtLiveHead: Boolean, mode: Int, modeLabel: String) {
+        fun onTick(speed: Double, latency: Double, health: Double, isAtLiveHead: Boolean, mode: Int, modeLabel: String, phase: String) {
             if (webViewGone) return
             mainHandler.post {
                 val banner = findViewById<TextView>(R.id.speedBanner) ?: return@post
@@ -352,16 +352,18 @@ class PlayerActivity : AppCompatActivity() {
                 val actualHealth = Math.round(health * 10.0) / 10.0
 
                 val displaySpeed = if (actualSpeed <= 1.01) "1.0x" else "${actualSpeed}x"
-                val modeInfo = "$modeLabel • $displaySpeed"
+                val phaseIcon = if (phase == "accel") "⚡" else if (phase == "rest") "⏳" else "▶️"
+                val modeInfo = "$phaseIcon $modeLabel • $displaySpeed"
 
-                if (actualSpeed > 1.01) {
-                    banner.text = "⚡ $modeInfo • atraso ${actualLatency}s • buffer ${actualHealth}s"
+                if (phase == "accel") {
+                    banner.text = "⚡ ACELERANDO • ${displaySpeed} • atraso ${actualLatency}s • buffer ${actualHealth}s"
                     banner.setBackgroundColor(0xCCFF6600.toInt())
-                } else if (isAtLiveHead && actualLatency <= 10) {
-                    banner.text = "✅ AO VIVO • $modeInfo • atraso ${actualLatency}s"
-                    banner.setBackgroundColor(0xCC00AA00.toInt())
+                } else if (phase == "rest") {
+                    val liveStatus = if (isAtLiveHead) "✅ AO VIVO" else "⏱️ atraso ${actualLatency}s"
+                    banner.text = "⏳ REPOUSO • $liveStatus • buffer ${actualHealth}s"
+                    banner.setBackgroundColor(0xCC0088CC.toInt())
                 } else {
-                    banner.text = "⏱️ $modeInfo • atraso ${actualLatency}s • buffer ${actualHealth}s"
+                    banner.text = "▶️ INICIANDO • $modeLabel"
                     banner.setBackgroundColor(0xCC000000.toInt())
                 }
                 banner.visibility = View.VISIBLE
@@ -381,7 +383,7 @@ class PlayerActivity : AppCompatActivity() {
         mainHandler.removeCallbacks(engineRunnable)
         findViewById<WebView>(R.id.youtubeWebView)?.apply {
             evaluateJavascript(
-                "if(window.__zeroDelay) { window.__zeroDelay.appliedRate = 1.0; window.__zeroDelay.player && window.__zeroDelay.player.setPlaybackRate(1.0); }",
+                "if(window.__zeroDelay) { window.__zeroDelay.setSpeed(1.0); }",
                 null
             )
             onPause()

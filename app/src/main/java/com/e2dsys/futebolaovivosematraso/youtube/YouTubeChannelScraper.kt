@@ -316,18 +316,23 @@ object YouTubeChannelScraper {
 
     private fun extractViewCount(video: JSONObject): Long {
         fun parseCount(text: String): Long {
-            return text.filter { it.isDigit() || it == '.' }
-                .let { cleaned ->
-                    if (cleaned.contains('.')) {
-                        val parts = cleaned.split('.')
-                        val base = parts[0].toLongOrNull() ?: return 0
-                        if (text.contains("mil", ignoreCase = true)) base * 1000
-                        else if (text.contains("mi", ignoreCase = true)) base * 1_000_000
-                        else base
-                    } else {
-                        cleaned.toLongOrNull() ?: 0
-                    }
-                }
+            // Portuguese format: dots are thousand separators, comma is decimal
+            // "1.234 visualizações" -> 1234
+            // "1.234.567 visualizações" -> 1234567
+            // "1,5 mil visualizações" -> 1500
+            // "1,5 mi visualizações" -> 1_500_000
+            val multiplier = when {
+                text.contains("milh", ignoreCase = true) -> 1_000_000L
+                text.contains("mi", ignoreCase = true) && !text.contains("mil", ignoreCase = true) -> 1_000_000L
+                text.contains("mil", ignoreCase = true) -> 1_000L
+                else -> 1L
+            }
+            val normalized = text
+                .replace(".", "")     // remove thousand separators
+                .replace(",", ".")    // convert decimal comma to dot
+                .filter { it.isDigit() || it == '.' }
+            val value = normalized.toDoubleOrNull() ?: return 0
+            return (value * multiplier).toLong()
         }
 
         val viewCountText = video.optJSONObject("viewCountText")

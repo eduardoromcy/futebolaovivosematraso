@@ -25,11 +25,13 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
+import androidx.compose.material3.pulltorefresh.PullToRefreshBox
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -72,17 +74,19 @@ class MainActivity : ComponentActivity() {
     }
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ChannelScreen(onPlay: (String) -> Unit) {
     var streams by remember { mutableStateOf<List<LiveStreamItem>>(emptyList()) }
     var isLoading by remember { mutableStateOf(true) }
+    var isRefreshing by remember { mutableStateOf(false) }
     var error by remember { mutableStateOf<String?>(null) }
     var showUrlDialog by remember { mutableStateOf(false) }
 
     val scope = rememberCoroutineScope()
 
     fun loadStreams() {
-        isLoading = true
+        if (!isRefreshing) isLoading = true
         error = null
         scope.launch {
             try {
@@ -100,6 +104,7 @@ fun ChannelScreen(onPlay: (String) -> Unit) {
                 error = "Erro ao carregar: ${e.localizedMessage ?: "desconhecido"}"
             } finally {
                 isLoading = false
+                isRefreshing = false
             }
         }
     }
@@ -157,7 +162,7 @@ fun ChannelScreen(onPlay: (String) -> Unit) {
 
         // Content
         when {
-            isLoading -> {
+            isLoading && streams.isEmpty() -> {
                 Box(
                     modifier = Modifier.fillMaxSize(),
                     contentAlignment = Alignment.Center
@@ -174,7 +179,7 @@ fun ChannelScreen(onPlay: (String) -> Unit) {
                 }
             }
 
-            error != null -> {
+            error != null && streams.isEmpty() -> {
                 Box(
                     modifier = Modifier.fillMaxSize(),
                     contentAlignment = Alignment.Center
@@ -196,17 +201,41 @@ fun ChannelScreen(onPlay: (String) -> Unit) {
             }
 
             else -> {
-                LazyColumn(
-                    modifier = Modifier
-                        .fillMaxSize()
-                        .padding(12.dp),
-                    verticalArrangement = Arrangement.spacedBy(8.dp)
+                PullToRefreshBox(
+                    isRefreshing = isRefreshing,
+                    onRefresh = {
+                        isRefreshing = true
+                        loadStreams()
+                    },
+                    modifier = Modifier.fillMaxSize()
                 ) {
-                    items(streams, key = { it.url }) { stream ->
-                        StreamCard(
-                            stream = stream,
-                            onClick = { onPlay(stream.url) }
-                        )
+                    if (streams.isEmpty()) {
+                        Box(
+                            modifier = Modifier.fillMaxSize(),
+                            contentAlignment = Alignment.Center
+                        ) {
+                            Text(
+                                text = error ?: "Nenhuma live no momento",
+                                style = MaterialTheme.typography.bodyLarge,
+                                color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f),
+                                textAlign = TextAlign.Center,
+                                modifier = Modifier.padding(24.dp)
+                            )
+                        }
+                    } else {
+                        LazyColumn(
+                            modifier = Modifier
+                                .fillMaxSize()
+                                .padding(12.dp),
+                            verticalArrangement = Arrangement.spacedBy(8.dp)
+                        ) {
+                            items(streams, key = { it.url }) { stream ->
+                                StreamCard(
+                                    stream = stream,
+                                    onClick = { onPlay(stream.url) }
+                                )
+                            }
+                        }
                     }
                 }
             }
