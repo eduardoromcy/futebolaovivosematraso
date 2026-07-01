@@ -1,8 +1,10 @@
 package com.e2dsys.futebolaovivosematraso
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.content.res.Configuration
 import android.graphics.Bitmap
+import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -19,6 +21,7 @@ import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 
 class PlayerActivity : AppCompatActivity() {
@@ -65,10 +68,11 @@ class PlayerActivity : AppCompatActivity() {
         val wm = findViewById<ImageView>(R.id.watermark)
         val disp = resources.displayMetrics
         wm.layoutParams = wm.layoutParams.apply {
-            width = (disp.widthPixels * 0.25).toInt()
+            width = (disp.widthPixels * 0.22).toInt()
             height = ViewGroup.LayoutParams.WRAP_CONTENT
         }
         wm.visibility = View.VISIBLE
+        wm.setOnClickListener { showContactDialog() }
     }
 
     private fun setupModeButtons() {
@@ -443,5 +447,19 @@ class PlayerActivity : AppCompatActivity() {
         customViewCallback = null
         findViewById<View>(R.id.topOverlay).visibility = View.VISIBLE
         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_VISIBLE
+    }
+
+    private fun showContactDialog() {
+        AlertDialog.Builder(this)
+            .setTitle("Contato")
+            .setMessage("Como deseja entrar em contato?")
+            .setPositiveButton("Instagram") { _, _ ->
+                startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://instagram.com/eduardoromcy")))
+            }
+            .setNegativeButton("WhatsApp") { _, _ ->
+                startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://wa.me/5585996759645")))
+            }
+            .setNeutralButton("Fechar", null)
+            .show()
     }
 }

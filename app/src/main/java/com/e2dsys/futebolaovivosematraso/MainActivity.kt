@@ -1,6 +1,7 @@
 package com.e2dsys.futebolaovivosematraso
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -85,6 +86,8 @@ fun ChannelScreen(onPlay: (String) -> Unit) {
     var isRefreshing by remember { mutableStateOf(false) }
     var error by remember { mutableStateOf<String?>(null) }
     var showUrlDialog by remember { mutableStateOf(false) }
+    var showContact by remember { mutableStateOf(false) }
+    val ctx = androidx.compose.ui.platform.LocalContext.current
 
     val scope = rememberCoroutineScope()
 
@@ -250,10 +253,36 @@ fun ChannelScreen(onPlay: (String) -> Unit) {
             painter = painterResource(R.drawable.logotipo),
             contentDescription = null,
             modifier = Modifier
-                .fillMaxWidth()
-                .padding(bottom = 16.dp, start = 32.dp, end = 32.dp)
-                .height(56.dp),
+                .align(Alignment.CenterHorizontally)
+                .padding(bottom = 16.dp)
+                .width(120.dp)
+                .height(32.dp)
+                .clickable { showContact = true },
             contentScale = ContentScale.Fit
+        )
+    }
+
+    if (showContact) {
+        AlertDialog(
+            onDismissRequest = { showContact = false },
+            title = { Text("Contato") },
+            text = { Text("Como deseja entrar em contato?") },
+            confirmButton = {
+                Button(onClick = {
+                    showContact = false
+                    ctx.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://instagram.com/eduardoromcy")))
+                }) {
+                    Text("Instagram")
+                }
+            },
+            dismissButton = {
+                Button(onClick = {
+                    showContact = false
+                    ctx.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://wa.me/5585996759645")))
+                }) {
+                    Text("WhatsApp")
+                }
+            }
         )
     }
 
