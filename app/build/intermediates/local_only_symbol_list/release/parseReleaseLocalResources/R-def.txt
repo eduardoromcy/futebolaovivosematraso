@@ -1,0 +1,35 @@
+R_DEF: Internal format may change without notice
+local
+color background
+color black
+color on_primary
+color on_secondary
+color primary
+color primary_variant
+color secondary
+color surface
+color white
+drawable ic_launcher_foreground
+drawable tv_banner
+drawable tv_item_bg
+id btnCustomUrl
+id btnRefresh
+id gridView
+id liveBadge
+id progressBar
+id speedBanner
+id streamTitle
+id titleBar
+id titleText
+id webView
+id youtubeWebView
+layout activity_main
+layout activity_player
+layout activity_tv_main
+layout item_tv_stream
+mipmap ic_launcher
+mipmap ic_launcher_round
+string app_name
+style Theme.FutebolAoVivoSemAtraso
+style Theme.FutebolAoVivoSemAtraso.Player
+style Theme.FutebolAoVivoSemAtraso.Tv

@@ -1,0 +1,500 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /Users/eduardoromcy/Projetos/FutebolAoVivoSemAtraso/app/src/main/AndroidManifest.xml:2:1-54:12
+INJECTED from /Users/eduardoromcy/Projetos/FutebolAoVivoSemAtraso/app/src/main/AndroidManifest.xml:2:1-54:12
+INJECTED from /Users/eduardoromcy/Projetos/FutebolAoVivoSemAtraso/app/src/main/AndroidManifest.xml:2:1-54:12
+INJECTED from /Users/eduardoromcy/Projetos/FutebolAoVivoSemAtraso/app/src/main/AndroidManifest.xml:2:1-54:12
+MERGED from [androidx.leanback:leanback-preference:1.2.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/86e95b9cc25a29865ee3b578b8c88d16/transformed/leanback-preference-1.2.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.leanback:leanback-grid:1.0.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/4397df1c4ba3770234da25d01bf8a3f2/transformed/leanback-grid-1.0.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.leanback:leanback:1.2.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/67d4e9e248ed225088027063a4054774/transformed/leanback-1.2.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.appcompat:appcompat-resources:1.7.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/b5d073b930c8f66b014dc5c13f5835ac/transformed/appcompat-resources-1.7.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.preference:preference:1.1.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/47dbb2138a65c02cc1a4d883cb768001/transformed/preference-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.appcompat:appcompat:1.7.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/77b760e2b40d8c15bdadd18a4e2629e6/transformed/appcompat-1.7.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.fragment:fragment:1.5.4] /Users/eduardoromcy/.gradle/caches/8.12/transforms/724b4207ac2dfd04b95cb84e60c59374/transformed/fragment-1.5.4/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.activity:activity:1.9.3] /Users/eduardoromcy/.gradle/caches/8.12/transforms/c0ed494696b679a926c3425b87262ce8/transformed/activity-1.9.3/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.compose.material3:material3-android:1.4.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/8776e3b14349c1f9624514147be9b146/transformed/material3/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.compose.material:material-android:1.10.1] /Users/eduardoromcy/.gradle/caches/8.12/transforms/f7141fe79ad318f4c15ee9cd6ee64e19/transformed/material/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.animation:animation-core-android:1.10.1] /Users/eduardoromcy/.gradle/caches/8.12/transforms/a94ab0c29690350583dad445bbd6b5c5/transformed/animation-core/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.material:material-ripple-android:1.10.1] /Users/eduardoromcy/.gradle/caches/8.12/transforms/b2d5c7e72c6f1bfd93c23bade40e5c77/transformed/material-ripple/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.animation:animation-android:1.10.1] /Users/eduardoromcy/.gradle/caches/8.12/transforms/6bc71aecec4f6e173c5a9739a16d8a6a/transformed/animation/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.foundation:foundation-layout-android:1.10.1] /Users/eduardoromcy/.gradle/caches/8.12/transforms/3f7c3d8e1aac96c7b501021f9e821725/transformed/foundation-layout/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.foundation:foundation-android:1.10.1] /Users/eduardoromcy/.gradle/caches/8.12/transforms/76379f84145603600b48e25b750f8c6a/transformed/foundation/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-tooling-data-android:1.10.1] /Users/eduardoromcy/.gradle/caches/8.12/transforms/7ee0d574d43d1342f511d71d60215848/transformed/ui-tooling-data/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-unit-android:1.10.1] /Users/eduardoromcy/.gradle/caches/8.12/transforms/4e85c0064efe5070650b623c2afd6f96/transformed/ui-unit/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-graphics-android:1.10.1] /Users/eduardoromcy/.gradle/caches/8.12/transforms/801a434f9e899f6c19b137c538c90c4e/transformed/ui-graphics/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-geometry-android:1.10.1] /Users/eduardoromcy/.gradle/caches/8.12/transforms/078615c400ac54cdce4bf6891ef0be6f/transformed/ui-geometry/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-util-android:1.10.1] /Users/eduardoromcy/.gradle/caches/8.12/transforms/696764c9dcaed301f7c370d8af675b0a/transformed/ui-util/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-text-android:1.10.1] /Users/eduardoromcy/.gradle/caches/8.12/transforms/66a67b52c6a7821c07c737f1bc753b5b/transformed/ui-text/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-tooling-preview-android:1.10.1] /Users/eduardoromcy/.gradle/caches/8.12/transforms/e83eb2bb33597077aec30544ec9ec2af/transformed/ui-tooling-preview/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.compose.ui:ui-tooling-android:1.10.1] /Users/eduardoromcy/.gradle/caches/8.12/transforms/21d23cfcc63ab995d8de3d323168fc06/transformed/ui-tooling/AndroidManifest.xml:17:1-28:12
+MERGED from [androidx.compose.ui:ui-android:1.10.1] /Users/eduardoromcy/.gradle/caches/8.12/transforms/0ae295cd0340ed64f021280e1bcc6925/transformed/ui/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.activity:activity-ktx:1.9.3] /Users/eduardoromcy/.gradle/caches/8.12/transforms/6c60e72824a150fbcf390959d58e9086/transformed/activity-ktx-1.9.3/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.activity:activity-compose:1.9.3] /Users/eduardoromcy/.gradle/caches/8.12/transforms/480b1aaf1261d48304e4cec856fd9cd7/transformed/activity-compose-1.9.3/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.runtime:runtime-annotation-android:1.10.1] /Users/eduardoromcy/.gradle/caches/8.12/transforms/67b93a44203fe61180fd2dd5182e8099/transformed/runtime-annotation/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.runtime:runtime-retain-android:1.10.1] /Users/eduardoromcy/.gradle/caches/8.12/transforms/ca7a55ceeee5226a30a6e90cd1e92279/transformed/runtime-retain/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.runtime:runtime-saveable-android:1.10.1] /Users/eduardoromcy/.gradle/caches/8.12/transforms/6714a1a5dc7921366c90936653079274/transformed/runtime-saveable/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.transition:transition:1.6.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/d173da7e5e24ecff70aa3c3898833ee3/transformed/transition-1.6.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/fde4320c9c81a64bdb184350986e0c2f/transformed/dynamicanimation-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/16d35c141d218747568fcc1632ce5ade/transformed/legacy-support-core-utils-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.loader:loader:1.0.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/4797691c2a41c041fba0763a0bd7e247/transformed/loader-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.emoji2:emoji2-views-helper:1.4.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/c8a5fcf2959746316a5515a6e0d32be4/transformed/emoji2-views-helper-1.4.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.emoji2:emoji2:1.4.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/2f9f1be6200dd49a86114c77d672fb5f/transformed/emoji2-1.4.0/AndroidManifest.xml:17:1-35:12
+MERGED from [androidx.media3:media3-ui:1.6.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/de283355f97e97baa9c345e65f393788/transformed/media3-ui-1.6.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.media3:media3-session:1.6.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/d6d2979fe330039c380dc3ccfe2bd904/transformed/media3-session-1.6.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.media3:media3-extractor:1.6.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/8eca398919b2ca7422e3d34cfe01c886/transformed/media3-extractor-1.6.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.media3:media3-container:1.6.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/dbc7732e5e88a5a34b023ebf9466feb3/transformed/media3-container-1.6.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.media3:media3-datasource:1.6.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/db84ea4229441986a71f46a221c70cc3/transformed/media3-datasource-1.6.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.media3:media3-decoder:1.6.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/840de0f8c6b28df661209bd2c04112f6/transformed/media3-decoder-1.6.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.media3:media3-database:1.6.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/63e9a0807b6aa1d8ec90579b48f03a30/transformed/media3-database-1.6.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.media3:media3-common:1.6.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/1926d857e10842ff5fc06ab0aaa99e10/transformed/media3-common-1.6.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.media3:media3-exoplayer-hls:1.6.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/0ef31e000467bcf4b05338e11d1716a5/transformed/media3-exoplayer-hls-1.6.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.media3:media3-exoplayer:1.6.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/497d9bc0a96ae888382f3c7db2d8bff5/transformed/media3-exoplayer-1.6.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/53c7da050af3f42653d5710d95893581/transformed/drawerlayout-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.recyclerview:recyclerview:1.3.2] /Users/eduardoromcy/.gradle/caches/8.12/transforms/d336d628271d421fc9e8ed959ac8dad9/transformed/recyclerview-1.3.2/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.media:media:1.7.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/dea79c2cd801de5f964a5a87dbca3040/transformed/media-1.7.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/4f8ef2f4a99c8fc2d4a79332aa2df2b7/transformed/vectordrawable-animated-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/a2628ca297cdecae2c2ce73484c5aeb8/transformed/vectordrawable-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/ca7ccb1f2f999a58bfe5381c9e63ac32/transformed/viewpager-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.customview:customview:1.0.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/e11f54d8db499aefb3ec139416cd5b63/transformed/customview-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.autofill:autofill:1.0.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/85a16536acea3a57445378a065df55c3/transformed/autofill-1.0.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.window:window-core-android:1.5.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/61a786a3e896200f49d3a8a36dc90f9a/transformed/window-core/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.window:window:1.5.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/965e629a22454b4933ecec5531666e3d/transformed/window-1.5.0/AndroidManifest.xml:17:1-31:12
+MERGED from [androidx.customview:customview-poolingcontainer:1.0.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/c66a76318b71e0d56c37e4aaf2095cc3/transformed/customview-poolingcontainer-1.0.0/AndroidManifest.xml:17:1-23:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.9.4] /Users/eduardoromcy/.gradle/caches/8.12/transforms/1376880775c228d4fe47799ceea85d13/transformed/lifecycle-viewmodel-2.9.4/AndroidManifest.xml:2:1-5:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-android:2.9.4] /Users/eduardoromcy/.gradle/caches/8.12/transforms/e15b032456f63ac8d246f1e2207a9154/transformed/lifecycle-viewmodel-release/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.9.4] /Users/eduardoromcy/.gradle/caches/8.12/transforms/1fa5891b33ba324b35327347b0daa4bf/transformed/lifecycle-livedata-core-ktx-2.9.4/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx-android:2.9.4] /Users/eduardoromcy/.gradle/caches/8.12/transforms/8194a7a111a10d4222e659da150757e1/transformed/lifecycle-runtime-ktx/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate-android:2.9.4] /Users/eduardoromcy/.gradle/caches/8.12/transforms/bfdcf70541192b57017b413d7e88f206/transformed/lifecycle-viewmodel-savedstate-release/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.savedstate:savedstate-android:1.3.2] /Users/eduardoromcy/.gradle/caches/8.12/transforms/c44e3ff65c0c25f0a569defcc2a1411a/transformed/savedstate-release/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.savedstate:savedstate-ktx:1.3.2] /Users/eduardoromcy/.gradle/caches/8.12/transforms/90a3b11d781f11843f2771dfbb3885ba/transformed/savedstate-ktx-1.3.2/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.savedstate:savedstate-compose-android:1.3.2] /Users/eduardoromcy/.gradle/caches/8.12/transforms/e7ad39cb5c7176edc8a74abd53b2cc58/transformed/savedstate-compose/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.core:core-ktx:1.16.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/d1095ec270fd1786e3e899eea6ce56e5/transformed/core-ktx-1.16.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.graphics:graphics-path:1.0.1] /Users/eduardoromcy/.gradle/caches/8.12/transforms/690b682d0f7fda4789610709655a58cc/transformed/graphics-path-1.0.1/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.core:core:1.16.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/091f5736024c8b75f8b5efd30ca8eeb0/transformed/core-1.16.0/AndroidManifest.xml:17:1-30:12
+MERGED from [androidx.lifecycle:lifecycle-runtime-android:2.9.4] /Users/eduardoromcy/.gradle/caches/8.12/transforms/aa0ce6d2264c9234d15cb87aec2acd56/transformed/lifecycle-runtime-release/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-process:2.9.4] /Users/eduardoromcy/.gradle/caches/8.12/transforms/c96a5636d1c2710c9ea192c70d5456c7/transformed/lifecycle-process-2.9.4/AndroidManifest.xml:17:1-35:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.9.4] /Users/eduardoromcy/.gradle/caches/8.12/transforms/dfc74a8557d3813ccb5f605194cee05e/transformed/lifecycle-viewmodel-ktx-2.9.4/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.9.4] /Users/eduardoromcy/.gradle/caches/8.12/transforms/40d937e09b83b1a8b57a43f86725effc/transformed/lifecycle-livedata-core-2.9.4/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.9.4] /Users/eduardoromcy/.gradle/caches/8.12/transforms/910d69a67d90a13151e130b0498c263d/transformed/lifecycle-livedata-2.9.4/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-runtime-compose-android:2.9.4] /Users/eduardoromcy/.gradle/caches/8.12/transforms/2bd2fd589307a1d63fa41d95fc450cfa/transformed/lifecycle-runtime-compose-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.runtime:runtime-android:1.10.1] /Users/eduardoromcy/.gradle/caches/8.12/transforms/56a58b9a17412997b35265c0c8df8c8e/transformed/runtime/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.annotation:annotation-experimental:1.4.1] /Users/eduardoromcy/.gradle/caches/8.12/transforms/c0f9bd877d7b0f822792f119c42b2889/transformed/annotation-experimental-1.4.1/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/eduardoromcy/.gradle/caches/8.12/transforms/150bd1dadff5a487d4fee5f74ddff371/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:17:1-27:12
+MERGED from [androidx.core:core-viewtree:1.0.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/c688d742ac926a004af72fa925f79489/transformed/core-viewtree-1.0.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/426df26f7c3de98acc1135969f73de79/transformed/cursoradapter-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/8b3ff060764dbd808ef0719c7bfc6dc9/transformed/interpolator-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.exifinterface:exifinterface:1.3.6] /Users/eduardoromcy/.gradle/caches/8.12/transforms/9ae24b6a52cc1132bfa39df853770e89/transformed/exifinterface-1.3.6/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/ffda0f1feafde0bf4fd1fbeea4b3c2f1/transformed/profileinstaller-1.4.0/AndroidManifest.xml:17:1-55:12
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/eduardoromcy/.gradle/caches/8.12/transforms/fdfc2e20ff67ad727ffc4179e0439368/transformed/startup-runtime-1.1.1/AndroidManifest.xml:17:1-33:12
+MERGED from [androidx.tracing:tracing:1.2.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/a0d9a979370b8cf7d1760c8dd7bbdeb3/transformed/tracing-1.2.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.documentfile:documentfile:1.0.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/061ba91075ea8ade016df7e18f659787/transformed/documentfile-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/8274ee4a9071b2bfd270d45cdcb8862a/transformed/localbroadcastmanager-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.print:print:1.0.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/ad83cc69839ba90140359d166b1c91fa/transformed/print-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.arch.core:core-runtime:2.2.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/6c43b38a4c4f3068ff8a6fcf6909ac50/transformed/core-runtime-2.2.0/AndroidManifest.xml:17:1-22:12
+	package
+		INJECTED from /Users/eduardoromcy/Projetos/FutebolAoVivoSemAtraso/app/src/main/AndroidManifest.xml
+	android:versionName
+		INJECTED from /Users/eduardoromcy/Projetos/FutebolAoVivoSemAtraso/app/src/main/AndroidManifest.xml
+	android:versionCode
+		INJECTED from /Users/eduardoromcy/Projetos/FutebolAoVivoSemAtraso/app/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /Users/eduardoromcy/Projetos/FutebolAoVivoSemAtraso/app/src/main/AndroidManifest.xml:2:11-69
+uses-feature#android.software.leanback
+ADDED from /Users/eduardoromcy/Projetos/FutebolAoVivoSemAtraso/app/src/main/AndroidManifest.xml:4:5-6:36
+	android:required
+		ADDED from /Users/eduardoromcy/Projetos/FutebolAoVivoSemAtraso/app/src/main/AndroidManifest.xml:6:9-33
+	android:name
+		ADDED from /Users/eduardoromcy/Projetos/FutebolAoVivoSemAtraso/app/src/main/AndroidManifest.xml:5:9-49
+uses-feature#android.hardware.touchscreen
+ADDED from /Users/eduardoromcy/Projetos/FutebolAoVivoSemAtraso/app/src/main/AndroidManifest.xml:7:5-9:36
+	android:required
+		ADDED from /Users/eduardoromcy/Projetos/FutebolAoVivoSemAtraso/app/src/main/AndroidManifest.xml:9:9-33
+	android:name
+		ADDED from /Users/eduardoromcy/Projetos/FutebolAoVivoSemAtraso/app/src/main/AndroidManifest.xml:8:9-52
+uses-feature#android.hardware.microphone
+ADDED from /Users/eduardoromcy/Projetos/FutebolAoVivoSemAtraso/app/src/main/AndroidManifest.xml:10:5-12:36
+	android:required
+		ADDED from /Users/eduardoromcy/Projetos/FutebolAoVivoSemAtraso/app/src/main/AndroidManifest.xml:12:9-33
+	android:name
+		ADDED from /Users/eduardoromcy/Projetos/FutebolAoVivoSemAtraso/app/src/main/AndroidManifest.xml:11:9-51
+uses-permission#android.permission.INTERNET
+ADDED from /Users/eduardoromcy/Projetos/FutebolAoVivoSemAtraso/app/src/main/AndroidManifest.xml:14:5-67
+	android:name
+		ADDED from /Users/eduardoromcy/Projetos/FutebolAoVivoSemAtraso/app/src/main/AndroidManifest.xml:14:22-64
+application
+ADDED from /Users/eduardoromcy/Projetos/FutebolAoVivoSemAtraso/app/src/main/AndroidManifest.xml:16:5-52:19
+INJECTED from /Users/eduardoromcy/Projetos/FutebolAoVivoSemAtraso/app/src/main/AndroidManifest.xml:16:5-52:19
+MERGED from [androidx.compose.ui:ui-tooling-android:1.10.1] /Users/eduardoromcy/.gradle/caches/8.12/transforms/21d23cfcc63ab995d8de3d323168fc06/transformed/ui-tooling/AndroidManifest.xml:22:5-26:19
+MERGED from [androidx.compose.ui:ui-tooling-android:1.10.1] /Users/eduardoromcy/.gradle/caches/8.12/transforms/21d23cfcc63ab995d8de3d323168fc06/transformed/ui-tooling/AndroidManifest.xml:22:5-26:19
+MERGED from [androidx.emoji2:emoji2:1.4.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/2f9f1be6200dd49a86114c77d672fb5f/transformed/emoji2-1.4.0/AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.emoji2:emoji2:1.4.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/2f9f1be6200dd49a86114c77d672fb5f/transformed/emoji2-1.4.0/AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.window:window:1.5.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/965e629a22454b4933ecec5531666e3d/transformed/window-1.5.0/AndroidManifest.xml:22:5-29:19
+MERGED from [androidx.window:window:1.5.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/965e629a22454b4933ecec5531666e3d/transformed/window-1.5.0/AndroidManifest.xml:22:5-29:19
+MERGED from [androidx.core:core:1.16.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/091f5736024c8b75f8b5efd30ca8eeb0/transformed/core-1.16.0/AndroidManifest.xml:28:5-89
+MERGED from [androidx.core:core:1.16.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/091f5736024c8b75f8b5efd30ca8eeb0/transformed/core-1.16.0/AndroidManifest.xml:28:5-89
+MERGED from [androidx.lifecycle:lifecycle-process:2.9.4] /Users/eduardoromcy/.gradle/caches/8.12/transforms/c96a5636d1c2710c9ea192c70d5456c7/transformed/lifecycle-process-2.9.4/AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.lifecycle:lifecycle-process:2.9.4] /Users/eduardoromcy/.gradle/caches/8.12/transforms/c96a5636d1c2710c9ea192c70d5456c7/transformed/lifecycle-process-2.9.4/AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/eduardoromcy/.gradle/caches/8.12/transforms/150bd1dadff5a487d4fee5f74ddff371/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/eduardoromcy/.gradle/caches/8.12/transforms/150bd1dadff5a487d4fee5f74ddff371/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/ffda0f1feafde0bf4fd1fbeea4b3c2f1/transformed/profileinstaller-1.4.0/AndroidManifest.xml:23:5-53:19
+MERGED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/ffda0f1feafde0bf4fd1fbeea4b3c2f1/transformed/profileinstaller-1.4.0/AndroidManifest.xml:23:5-53:19
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/eduardoromcy/.gradle/caches/8.12/transforms/fdfc2e20ff67ad727ffc4179e0439368/transformed/startup-runtime-1.1.1/AndroidManifest.xml:25:5-31:19
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/eduardoromcy/.gradle/caches/8.12/transforms/fdfc2e20ff67ad727ffc4179e0439368/transformed/startup-runtime-1.1.1/AndroidManifest.xml:25:5-31:19
+	android:extractNativeLibs
+		INJECTED from /Users/eduardoromcy/Projetos/FutebolAoVivoSemAtraso/app/src/main/AndroidManifest.xml
+	android:appComponentFactory
+		ADDED from [androidx.core:core:1.16.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/091f5736024c8b75f8b5efd30ca8eeb0/transformed/core-1.16.0/AndroidManifest.xml:28:18-86
+	android:supportsRtl
+		ADDED from /Users/eduardoromcy/Projetos/FutebolAoVivoSemAtraso/app/src/main/AndroidManifest.xml:22:9-35
+	android:label
+		ADDED from /Users/eduardoromcy/Projetos/FutebolAoVivoSemAtraso/app/src/main/AndroidManifest.xml:20:9-41
+	android:roundIcon
+		ADDED from /Users/eduardoromcy/Projetos/FutebolAoVivoSemAtraso/app/src/main/AndroidManifest.xml:21:9-54
+	android:icon
+		ADDED from /Users/eduardoromcy/Projetos/FutebolAoVivoSemAtraso/app/src/main/AndroidManifest.xml:19:9-43
+	android:allowBackup
+		ADDED from /Users/eduardoromcy/Projetos/FutebolAoVivoSemAtraso/app/src/main/AndroidManifest.xml:18:9-36
+	android:banner
+		ADDED from /Users/eduardoromcy/Projetos/FutebolAoVivoSemAtraso/app/src/main/AndroidManifest.xml:24:9-45
+	android:theme
+		ADDED from /Users/eduardoromcy/Projetos/FutebolAoVivoSemAtraso/app/src/main/AndroidManifest.xml:23:9-60
+	android:name
+		ADDED from /Users/eduardoromcy/Projetos/FutebolAoVivoSemAtraso/app/src/main/AndroidManifest.xml:17:9-28
+activity#com.e2dsys.futebolaovivosematraso.MainActivity
+ADDED from /Users/eduardoromcy/Projetos/FutebolAoVivoSemAtraso/app/src/main/AndroidManifest.xml:26:9-34:20
+	android:exported
+		ADDED from /Users/eduardoromcy/Projetos/FutebolAoVivoSemAtraso/app/src/main/AndroidManifest.xml:28:13-36
+	android:configChanges
+		ADDED from /Users/eduardoromcy/Projetos/FutebolAoVivoSemAtraso/app/src/main/AndroidManifest.xml:29:13-87
+	android:name
+		ADDED from /Users/eduardoromcy/Projetos/FutebolAoVivoSemAtraso/app/src/main/AndroidManifest.xml:27:13-41
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from /Users/eduardoromcy/Projetos/FutebolAoVivoSemAtraso/app/src/main/AndroidManifest.xml:30:13-33:29
+action#android.intent.action.MAIN
+ADDED from /Users/eduardoromcy/Projetos/FutebolAoVivoSemAtraso/app/src/main/AndroidManifest.xml:31:17-69
+	android:name
+		ADDED from /Users/eduardoromcy/Projetos/FutebolAoVivoSemAtraso/app/src/main/AndroidManifest.xml:31:25-66
+category#android.intent.category.LAUNCHER
+ADDED from /Users/eduardoromcy/Projetos/FutebolAoVivoSemAtraso/app/src/main/AndroidManifest.xml:32:17-77
+	android:name
+		ADDED from /Users/eduardoromcy/Projetos/FutebolAoVivoSemAtraso/app/src/main/AndroidManifest.xml:32:27-74
+activity#com.e2dsys.futebolaovivosematraso.TvMainActivity
+ADDED from /Users/eduardoromcy/Projetos/FutebolAoVivoSemAtraso/app/src/main/AndroidManifest.xml:36:9-44:20
+	android:exported
+		ADDED from /Users/eduardoromcy/Projetos/FutebolAoVivoSemAtraso/app/src/main/AndroidManifest.xml:38:13-36
+	android:configChanges
+		ADDED from /Users/eduardoromcy/Projetos/FutebolAoVivoSemAtraso/app/src/main/AndroidManifest.xml:39:13-87
+	android:name
+		ADDED from /Users/eduardoromcy/Projetos/FutebolAoVivoSemAtraso/app/src/main/AndroidManifest.xml:37:13-43
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LEANBACK_LAUNCHER
+ADDED from /Users/eduardoromcy/Projetos/FutebolAoVivoSemAtraso/app/src/main/AndroidManifest.xml:40:13-43:29
+category#android.intent.category.LEANBACK_LAUNCHER
+ADDED from /Users/eduardoromcy/Projetos/FutebolAoVivoSemAtraso/app/src/main/AndroidManifest.xml:42:17-86
+	android:name
+		ADDED from /Users/eduardoromcy/Projetos/FutebolAoVivoSemAtraso/app/src/main/AndroidManifest.xml:42:27-83
+activity#com.e2dsys.futebolaovivosematraso.PlayerActivity
+ADDED from /Users/eduardoromcy/Projetos/FutebolAoVivoSemAtraso/app/src/main/AndroidManifest.xml:46:9-50:74
+	android:exported
+		ADDED from /Users/eduardoromcy/Projetos/FutebolAoVivoSemAtraso/app/src/main/AndroidManifest.xml:48:13-37
+	android:configChanges
+		ADDED from /Users/eduardoromcy/Projetos/FutebolAoVivoSemAtraso/app/src/main/AndroidManifest.xml:49:13-87
+	android:theme
+		ADDED from /Users/eduardoromcy/Projetos/FutebolAoVivoSemAtraso/app/src/main/AndroidManifest.xml:50:13-71
+	android:name
+		ADDED from /Users/eduardoromcy/Projetos/FutebolAoVivoSemAtraso/app/src/main/AndroidManifest.xml:47:13-43
+uses-sdk
+INJECTED from /Users/eduardoromcy/Projetos/FutebolAoVivoSemAtraso/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /Users/eduardoromcy/Projetos/FutebolAoVivoSemAtraso/app/src/main/AndroidManifest.xml
+INJECTED from /Users/eduardoromcy/Projetos/FutebolAoVivoSemAtraso/app/src/main/AndroidManifest.xml
+MERGED from [androidx.leanback:leanback-preference:1.2.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/86e95b9cc25a29865ee3b578b8c88d16/transformed/leanback-preference-1.2.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.leanback:leanback-preference:1.2.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/86e95b9cc25a29865ee3b578b8c88d16/transformed/leanback-preference-1.2.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.leanback:leanback-grid:1.0.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/4397df1c4ba3770234da25d01bf8a3f2/transformed/leanback-grid-1.0.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.leanback:leanback-grid:1.0.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/4397df1c4ba3770234da25d01bf8a3f2/transformed/leanback-grid-1.0.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.leanback:leanback:1.2.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/67d4e9e248ed225088027063a4054774/transformed/leanback-1.2.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.leanback:leanback:1.2.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/67d4e9e248ed225088027063a4054774/transformed/leanback-1.2.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.appcompat:appcompat-resources:1.7.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/b5d073b930c8f66b014dc5c13f5835ac/transformed/appcompat-resources-1.7.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.appcompat:appcompat-resources:1.7.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/b5d073b930c8f66b014dc5c13f5835ac/transformed/appcompat-resources-1.7.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.preference:preference:1.1.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/47dbb2138a65c02cc1a4d883cb768001/transformed/preference-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.preference:preference:1.1.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/47dbb2138a65c02cc1a4d883cb768001/transformed/preference-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat:1.7.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/77b760e2b40d8c15bdadd18a4e2629e6/transformed/appcompat-1.7.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.appcompat:appcompat:1.7.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/77b760e2b40d8c15bdadd18a4e2629e6/transformed/appcompat-1.7.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.fragment:fragment:1.5.4] /Users/eduardoromcy/.gradle/caches/8.12/transforms/724b4207ac2dfd04b95cb84e60c59374/transformed/fragment-1.5.4/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment:1.5.4] /Users/eduardoromcy/.gradle/caches/8.12/transforms/724b4207ac2dfd04b95cb84e60c59374/transformed/fragment-1.5.4/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.activity:activity:1.9.3] /Users/eduardoromcy/.gradle/caches/8.12/transforms/c0ed494696b679a926c3425b87262ce8/transformed/activity-1.9.3/AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity:1.9.3] /Users/eduardoromcy/.gradle/caches/8.12/transforms/c0ed494696b679a926c3425b87262ce8/transformed/activity-1.9.3/AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.material3:material3-android:1.4.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/8776e3b14349c1f9624514147be9b146/transformed/material3/AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.material3:material3-android:1.4.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/8776e3b14349c1f9624514147be9b146/transformed/material3/AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.material:material-android:1.10.1] /Users/eduardoromcy/.gradle/caches/8.12/transforms/f7141fe79ad318f4c15ee9cd6ee64e19/transformed/material/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-android:1.10.1] /Users/eduardoromcy/.gradle/caches/8.12/transforms/f7141fe79ad318f4c15ee9cd6ee64e19/transformed/material/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.animation:animation-core-android:1.10.1] /Users/eduardoromcy/.gradle/caches/8.12/transforms/a94ab0c29690350583dad445bbd6b5c5/transformed/animation-core/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.animation:animation-core-android:1.10.1] /Users/eduardoromcy/.gradle/caches/8.12/transforms/a94ab0c29690350583dad445bbd6b5c5/transformed/animation-core/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-ripple-android:1.10.1] /Users/eduardoromcy/.gradle/caches/8.12/transforms/b2d5c7e72c6f1bfd93c23bade40e5c77/transformed/material-ripple/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-ripple-android:1.10.1] /Users/eduardoromcy/.gradle/caches/8.12/transforms/b2d5c7e72c6f1bfd93c23bade40e5c77/transformed/material-ripple/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.animation:animation-android:1.10.1] /Users/eduardoromcy/.gradle/caches/8.12/transforms/6bc71aecec4f6e173c5a9739a16d8a6a/transformed/animation/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.animation:animation-android:1.10.1] /Users/eduardoromcy/.gradle/caches/8.12/transforms/6bc71aecec4f6e173c5a9739a16d8a6a/transformed/animation/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.foundation:foundation-layout-android:1.10.1] /Users/eduardoromcy/.gradle/caches/8.12/transforms/3f7c3d8e1aac96c7b501021f9e821725/transformed/foundation-layout/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.foundation:foundation-layout-android:1.10.1] /Users/eduardoromcy/.gradle/caches/8.12/transforms/3f7c3d8e1aac96c7b501021f9e821725/transformed/foundation-layout/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.foundation:foundation-android:1.10.1] /Users/eduardoromcy/.gradle/caches/8.12/transforms/76379f84145603600b48e25b750f8c6a/transformed/foundation/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.foundation:foundation-android:1.10.1] /Users/eduardoromcy/.gradle/caches/8.12/transforms/76379f84145603600b48e25b750f8c6a/transformed/foundation/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-tooling-data-android:1.10.1] /Users/eduardoromcy/.gradle/caches/8.12/transforms/7ee0d574d43d1342f511d71d60215848/transformed/ui-tooling-data/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-tooling-data-android:1.10.1] /Users/eduardoromcy/.gradle/caches/8.12/transforms/7ee0d574d43d1342f511d71d60215848/transformed/ui-tooling-data/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-unit-android:1.10.1] /Users/eduardoromcy/.gradle/caches/8.12/transforms/4e85c0064efe5070650b623c2afd6f96/transformed/ui-unit/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-unit-android:1.10.1] /Users/eduardoromcy/.gradle/caches/8.12/transforms/4e85c0064efe5070650b623c2afd6f96/transformed/ui-unit/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-graphics-android:1.10.1] /Users/eduardoromcy/.gradle/caches/8.12/transforms/801a434f9e899f6c19b137c538c90c4e/transformed/ui-graphics/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-graphics-android:1.10.1] /Users/eduardoromcy/.gradle/caches/8.12/transforms/801a434f9e899f6c19b137c538c90c4e/transformed/ui-graphics/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-geometry-android:1.10.1] /Users/eduardoromcy/.gradle/caches/8.12/transforms/078615c400ac54cdce4bf6891ef0be6f/transformed/ui-geometry/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-geometry-android:1.10.1] /Users/eduardoromcy/.gradle/caches/8.12/transforms/078615c400ac54cdce4bf6891ef0be6f/transformed/ui-geometry/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-util-android:1.10.1] /Users/eduardoromcy/.gradle/caches/8.12/transforms/696764c9dcaed301f7c370d8af675b0a/transformed/ui-util/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-util-android:1.10.1] /Users/eduardoromcy/.gradle/caches/8.12/transforms/696764c9dcaed301f7c370d8af675b0a/transformed/ui-util/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-text-android:1.10.1] /Users/eduardoromcy/.gradle/caches/8.12/transforms/66a67b52c6a7821c07c737f1bc753b5b/transformed/ui-text/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-text-android:1.10.1] /Users/eduardoromcy/.gradle/caches/8.12/transforms/66a67b52c6a7821c07c737f1bc753b5b/transformed/ui-text/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-tooling-preview-android:1.10.1] /Users/eduardoromcy/.gradle/caches/8.12/transforms/e83eb2bb33597077aec30544ec9ec2af/transformed/ui-tooling-preview/AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.ui:ui-tooling-preview-android:1.10.1] /Users/eduardoromcy/.gradle/caches/8.12/transforms/e83eb2bb33597077aec30544ec9ec2af/transformed/ui-tooling-preview/AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.ui:ui-tooling-android:1.10.1] /Users/eduardoromcy/.gradle/caches/8.12/transforms/21d23cfcc63ab995d8de3d323168fc06/transformed/ui-tooling/AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.ui:ui-tooling-android:1.10.1] /Users/eduardoromcy/.gradle/caches/8.12/transforms/21d23cfcc63ab995d8de3d323168fc06/transformed/ui-tooling/AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.ui:ui-android:1.10.1] /Users/eduardoromcy/.gradle/caches/8.12/transforms/0ae295cd0340ed64f021280e1bcc6925/transformed/ui/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-android:1.10.1] /Users/eduardoromcy/.gradle/caches/8.12/transforms/0ae295cd0340ed64f021280e1bcc6925/transformed/ui/AndroidManifest.xml:5:5-44
+MERGED from [androidx.activity:activity-ktx:1.9.3] /Users/eduardoromcy/.gradle/caches/8.12/transforms/6c60e72824a150fbcf390959d58e9086/transformed/activity-ktx-1.9.3/AndroidManifest.xml:5:5-44
+MERGED from [androidx.activity:activity-ktx:1.9.3] /Users/eduardoromcy/.gradle/caches/8.12/transforms/6c60e72824a150fbcf390959d58e9086/transformed/activity-ktx-1.9.3/AndroidManifest.xml:5:5-44
+MERGED from [androidx.activity:activity-compose:1.9.3] /Users/eduardoromcy/.gradle/caches/8.12/transforms/480b1aaf1261d48304e4cec856fd9cd7/transformed/activity-compose-1.9.3/AndroidManifest.xml:5:5-44
+MERGED from [androidx.activity:activity-compose:1.9.3] /Users/eduardoromcy/.gradle/caches/8.12/transforms/480b1aaf1261d48304e4cec856fd9cd7/transformed/activity-compose-1.9.3/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.runtime:runtime-annotation-android:1.10.1] /Users/eduardoromcy/.gradle/caches/8.12/transforms/67b93a44203fe61180fd2dd5182e8099/transformed/runtime-annotation/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.runtime:runtime-annotation-android:1.10.1] /Users/eduardoromcy/.gradle/caches/8.12/transforms/67b93a44203fe61180fd2dd5182e8099/transformed/runtime-annotation/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.runtime:runtime-retain-android:1.10.1] /Users/eduardoromcy/.gradle/caches/8.12/transforms/ca7a55ceeee5226a30a6e90cd1e92279/transformed/runtime-retain/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.runtime:runtime-retain-android:1.10.1] /Users/eduardoromcy/.gradle/caches/8.12/transforms/ca7a55ceeee5226a30a6e90cd1e92279/transformed/runtime-retain/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.runtime:runtime-saveable-android:1.10.1] /Users/eduardoromcy/.gradle/caches/8.12/transforms/6714a1a5dc7921366c90936653079274/transformed/runtime-saveable/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.runtime:runtime-saveable-android:1.10.1] /Users/eduardoromcy/.gradle/caches/8.12/transforms/6714a1a5dc7921366c90936653079274/transformed/runtime-saveable/AndroidManifest.xml:5:5-44
+MERGED from [androidx.transition:transition:1.6.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/d173da7e5e24ecff70aa3c3898833ee3/transformed/transition-1.6.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.transition:transition:1.6.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/d173da7e5e24ecff70aa3c3898833ee3/transformed/transition-1.6.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/fde4320c9c81a64bdb184350986e0c2f/transformed/dynamicanimation-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/fde4320c9c81a64bdb184350986e0c2f/transformed/dynamicanimation-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/16d35c141d218747568fcc1632ce5ade/transformed/legacy-support-core-utils-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/16d35c141d218747568fcc1632ce5ade/transformed/legacy-support-core-utils-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/4797691c2a41c041fba0763a0bd7e247/transformed/loader-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/4797691c2a41c041fba0763a0bd7e247/transformed/loader-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.emoji2:emoji2-views-helper:1.4.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/c8a5fcf2959746316a5515a6e0d32be4/transformed/emoji2-views-helper-1.4.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.emoji2:emoji2-views-helper:1.4.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/c8a5fcf2959746316a5515a6e0d32be4/transformed/emoji2-views-helper-1.4.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.emoji2:emoji2:1.4.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/2f9f1be6200dd49a86114c77d672fb5f/transformed/emoji2-1.4.0/AndroidManifest.xml:21:5-44
+MERGED from [androidx.emoji2:emoji2:1.4.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/2f9f1be6200dd49a86114c77d672fb5f/transformed/emoji2-1.4.0/AndroidManifest.xml:21:5-44
+MERGED from [androidx.media3:media3-ui:1.6.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/de283355f97e97baa9c345e65f393788/transformed/media3-ui-1.6.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media3:media3-ui:1.6.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/de283355f97e97baa9c345e65f393788/transformed/media3-ui-1.6.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media3:media3-session:1.6.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/d6d2979fe330039c380dc3ccfe2bd904/transformed/media3-session-1.6.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media3:media3-session:1.6.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/d6d2979fe330039c380dc3ccfe2bd904/transformed/media3-session-1.6.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media3:media3-extractor:1.6.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/8eca398919b2ca7422e3d34cfe01c886/transformed/media3-extractor-1.6.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media3:media3-extractor:1.6.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/8eca398919b2ca7422e3d34cfe01c886/transformed/media3-extractor-1.6.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media3:media3-container:1.6.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/dbc7732e5e88a5a34b023ebf9466feb3/transformed/media3-container-1.6.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media3:media3-container:1.6.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/dbc7732e5e88a5a34b023ebf9466feb3/transformed/media3-container-1.6.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media3:media3-datasource:1.6.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/db84ea4229441986a71f46a221c70cc3/transformed/media3-datasource-1.6.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media3:media3-datasource:1.6.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/db84ea4229441986a71f46a221c70cc3/transformed/media3-datasource-1.6.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media3:media3-decoder:1.6.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/840de0f8c6b28df661209bd2c04112f6/transformed/media3-decoder-1.6.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media3:media3-decoder:1.6.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/840de0f8c6b28df661209bd2c04112f6/transformed/media3-decoder-1.6.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media3:media3-database:1.6.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/63e9a0807b6aa1d8ec90579b48f03a30/transformed/media3-database-1.6.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media3:media3-database:1.6.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/63e9a0807b6aa1d8ec90579b48f03a30/transformed/media3-database-1.6.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media3:media3-common:1.6.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/1926d857e10842ff5fc06ab0aaa99e10/transformed/media3-common-1.6.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media3:media3-common:1.6.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/1926d857e10842ff5fc06ab0aaa99e10/transformed/media3-common-1.6.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media3:media3-exoplayer-hls:1.6.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/0ef31e000467bcf4b05338e11d1716a5/transformed/media3-exoplayer-hls-1.6.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media3:media3-exoplayer-hls:1.6.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/0ef31e000467bcf4b05338e11d1716a5/transformed/media3-exoplayer-hls-1.6.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media3:media3-exoplayer:1.6.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/497d9bc0a96ae888382f3c7db2d8bff5/transformed/media3-exoplayer-1.6.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media3:media3-exoplayer:1.6.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/497d9bc0a96ae888382f3c7db2d8bff5/transformed/media3-exoplayer-1.6.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/53c7da050af3f42653d5710d95893581/transformed/drawerlayout-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/53c7da050af3f42653d5710d95893581/transformed/drawerlayout-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.recyclerview:recyclerview:1.3.2] /Users/eduardoromcy/.gradle/caches/8.12/transforms/d336d628271d421fc9e8ed959ac8dad9/transformed/recyclerview-1.3.2/AndroidManifest.xml:20:5-44
+MERGED from [androidx.recyclerview:recyclerview:1.3.2] /Users/eduardoromcy/.gradle/caches/8.12/transforms/d336d628271d421fc9e8ed959ac8dad9/transformed/recyclerview-1.3.2/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media:media:1.7.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/dea79c2cd801de5f964a5a87dbca3040/transformed/media-1.7.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.media:media:1.7.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/dea79c2cd801de5f964a5a87dbca3040/transformed/media-1.7.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/4f8ef2f4a99c8fc2d4a79332aa2df2b7/transformed/vectordrawable-animated-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/4f8ef2f4a99c8fc2d4a79332aa2df2b7/transformed/vectordrawable-animated-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/a2628ca297cdecae2c2ce73484c5aeb8/transformed/vectordrawable-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/a2628ca297cdecae2c2ce73484c5aeb8/transformed/vectordrawable-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/ca7ccb1f2f999a58bfe5381c9e63ac32/transformed/viewpager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/ca7ccb1f2f999a58bfe5381c9e63ac32/transformed/viewpager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/e11f54d8db499aefb3ec139416cd5b63/transformed/customview-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/e11f54d8db499aefb3ec139416cd5b63/transformed/customview-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.autofill:autofill:1.0.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/85a16536acea3a57445378a065df55c3/transformed/autofill-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.autofill:autofill:1.0.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/85a16536acea3a57445378a065df55c3/transformed/autofill-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.window:window-core-android:1.5.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/61a786a3e896200f49d3a8a36dc90f9a/transformed/window-core/AndroidManifest.xml:5:5-44
+MERGED from [androidx.window:window-core-android:1.5.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/61a786a3e896200f49d3a8a36dc90f9a/transformed/window-core/AndroidManifest.xml:5:5-44
+MERGED from [androidx.window:window:1.5.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/965e629a22454b4933ecec5531666e3d/transformed/window-1.5.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.window:window:1.5.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/965e629a22454b4933ecec5531666e3d/transformed/window-1.5.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview-poolingcontainer:1.0.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/c66a76318b71e0d56c37e4aaf2095cc3/transformed/customview-poolingcontainer-1.0.0/AndroidManifest.xml:20:5-21:38
+MERGED from [androidx.customview:customview-poolingcontainer:1.0.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/c66a76318b71e0d56c37e4aaf2095cc3/transformed/customview-poolingcontainer-1.0.0/AndroidManifest.xml:20:5-21:38
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.9.4] /Users/eduardoromcy/.gradle/caches/8.12/transforms/1376880775c228d4fe47799ceea85d13/transformed/lifecycle-viewmodel-2.9.4/AndroidManifest.xml:4:5-43
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.9.4] /Users/eduardoromcy/.gradle/caches/8.12/transforms/1376880775c228d4fe47799ceea85d13/transformed/lifecycle-viewmodel-2.9.4/AndroidManifest.xml:4:5-43
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-android:2.9.4] /Users/eduardoromcy/.gradle/caches/8.12/transforms/e15b032456f63ac8d246f1e2207a9154/transformed/lifecycle-viewmodel-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-android:2.9.4] /Users/eduardoromcy/.gradle/caches/8.12/transforms/e15b032456f63ac8d246f1e2207a9154/transformed/lifecycle-viewmodel-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.9.4] /Users/eduardoromcy/.gradle/caches/8.12/transforms/1fa5891b33ba324b35327347b0daa4bf/transformed/lifecycle-livedata-core-ktx-2.9.4/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.9.4] /Users/eduardoromcy/.gradle/caches/8.12/transforms/1fa5891b33ba324b35327347b0daa4bf/transformed/lifecycle-livedata-core-ktx-2.9.4/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx-android:2.9.4] /Users/eduardoromcy/.gradle/caches/8.12/transforms/8194a7a111a10d4222e659da150757e1/transformed/lifecycle-runtime-ktx/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx-android:2.9.4] /Users/eduardoromcy/.gradle/caches/8.12/transforms/8194a7a111a10d4222e659da150757e1/transformed/lifecycle-runtime-ktx/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate-android:2.9.4] /Users/eduardoromcy/.gradle/caches/8.12/transforms/bfdcf70541192b57017b413d7e88f206/transformed/lifecycle-viewmodel-savedstate-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate-android:2.9.4] /Users/eduardoromcy/.gradle/caches/8.12/transforms/bfdcf70541192b57017b413d7e88f206/transformed/lifecycle-viewmodel-savedstate-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate-android:1.3.2] /Users/eduardoromcy/.gradle/caches/8.12/transforms/c44e3ff65c0c25f0a569defcc2a1411a/transformed/savedstate-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate-android:1.3.2] /Users/eduardoromcy/.gradle/caches/8.12/transforms/c44e3ff65c0c25f0a569defcc2a1411a/transformed/savedstate-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate-ktx:1.3.2] /Users/eduardoromcy/.gradle/caches/8.12/transforms/90a3b11d781f11843f2771dfbb3885ba/transformed/savedstate-ktx-1.3.2/AndroidManifest.xml:5:5-44
+MERGED from [androidx.savedstate:savedstate-ktx:1.3.2] /Users/eduardoromcy/.gradle/caches/8.12/transforms/90a3b11d781f11843f2771dfbb3885ba/transformed/savedstate-ktx-1.3.2/AndroidManifest.xml:5:5-44
+MERGED from [androidx.savedstate:savedstate-compose-android:1.3.2] /Users/eduardoromcy/.gradle/caches/8.12/transforms/e7ad39cb5c7176edc8a74abd53b2cc58/transformed/savedstate-compose/AndroidManifest.xml:5:5-44
+MERGED from [androidx.savedstate:savedstate-compose-android:1.3.2] /Users/eduardoromcy/.gradle/caches/8.12/transforms/e7ad39cb5c7176edc8a74abd53b2cc58/transformed/savedstate-compose/AndroidManifest.xml:5:5-44
+MERGED from [androidx.core:core-ktx:1.16.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/d1095ec270fd1786e3e899eea6ce56e5/transformed/core-ktx-1.16.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.core:core-ktx:1.16.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/d1095ec270fd1786e3e899eea6ce56e5/transformed/core-ktx-1.16.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.graphics:graphics-path:1.0.1] /Users/eduardoromcy/.gradle/caches/8.12/transforms/690b682d0f7fda4789610709655a58cc/transformed/graphics-path-1.0.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.graphics:graphics-path:1.0.1] /Users/eduardoromcy/.gradle/caches/8.12/transforms/690b682d0f7fda4789610709655a58cc/transformed/graphics-path-1.0.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.core:core:1.16.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/091f5736024c8b75f8b5efd30ca8eeb0/transformed/core-1.16.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.16.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/091f5736024c8b75f8b5efd30ca8eeb0/transformed/core-1.16.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-android:2.9.4] /Users/eduardoromcy/.gradle/caches/8.12/transforms/aa0ce6d2264c9234d15cb87aec2acd56/transformed/lifecycle-runtime-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-android:2.9.4] /Users/eduardoromcy/.gradle/caches/8.12/transforms/aa0ce6d2264c9234d15cb87aec2acd56/transformed/lifecycle-runtime-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-process:2.9.4] /Users/eduardoromcy/.gradle/caches/8.12/transforms/c96a5636d1c2710c9ea192c70d5456c7/transformed/lifecycle-process-2.9.4/AndroidManifest.xml:21:5-44
+MERGED from [androidx.lifecycle:lifecycle-process:2.9.4] /Users/eduardoromcy/.gradle/caches/8.12/transforms/c96a5636d1c2710c9ea192c70d5456c7/transformed/lifecycle-process-2.9.4/AndroidManifest.xml:21:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.9.4] /Users/eduardoromcy/.gradle/caches/8.12/transforms/dfc74a8557d3813ccb5f605194cee05e/transformed/lifecycle-viewmodel-ktx-2.9.4/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.9.4] /Users/eduardoromcy/.gradle/caches/8.12/transforms/dfc74a8557d3813ccb5f605194cee05e/transformed/lifecycle-viewmodel-ktx-2.9.4/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.9.4] /Users/eduardoromcy/.gradle/caches/8.12/transforms/40d937e09b83b1a8b57a43f86725effc/transformed/lifecycle-livedata-core-2.9.4/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.9.4] /Users/eduardoromcy/.gradle/caches/8.12/transforms/40d937e09b83b1a8b57a43f86725effc/transformed/lifecycle-livedata-core-2.9.4/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.9.4] /Users/eduardoromcy/.gradle/caches/8.12/transforms/910d69a67d90a13151e130b0498c263d/transformed/lifecycle-livedata-2.9.4/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.9.4] /Users/eduardoromcy/.gradle/caches/8.12/transforms/910d69a67d90a13151e130b0498c263d/transformed/lifecycle-livedata-2.9.4/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-compose-android:2.9.4] /Users/eduardoromcy/.gradle/caches/8.12/transforms/2bd2fd589307a1d63fa41d95fc450cfa/transformed/lifecycle-runtime-compose-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-compose-android:2.9.4] /Users/eduardoromcy/.gradle/caches/8.12/transforms/2bd2fd589307a1d63fa41d95fc450cfa/transformed/lifecycle-runtime-compose-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.runtime:runtime-android:1.10.1] /Users/eduardoromcy/.gradle/caches/8.12/transforms/56a58b9a17412997b35265c0c8df8c8e/transformed/runtime/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.runtime:runtime-android:1.10.1] /Users/eduardoromcy/.gradle/caches/8.12/transforms/56a58b9a17412997b35265c0c8df8c8e/transformed/runtime/AndroidManifest.xml:5:5-44
+MERGED from [androidx.annotation:annotation-experimental:1.4.1] /Users/eduardoromcy/.gradle/caches/8.12/transforms/c0f9bd877d7b0f822792f119c42b2889/transformed/annotation-experimental-1.4.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.annotation:annotation-experimental:1.4.1] /Users/eduardoromcy/.gradle/caches/8.12/transforms/c0f9bd877d7b0f822792f119c42b2889/transformed/annotation-experimental-1.4.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/eduardoromcy/.gradle/caches/8.12/transforms/150bd1dadff5a487d4fee5f74ddff371/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/eduardoromcy/.gradle/caches/8.12/transforms/150bd1dadff5a487d4fee5f74ddff371/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.core:core-viewtree:1.0.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/c688d742ac926a004af72fa925f79489/transformed/core-viewtree-1.0.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.core:core-viewtree:1.0.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/c688d742ac926a004af72fa925f79489/transformed/core-viewtree-1.0.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/426df26f7c3de98acc1135969f73de79/transformed/cursoradapter-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/426df26f7c3de98acc1135969f73de79/transformed/cursoradapter-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/8b3ff060764dbd808ef0719c7bfc6dc9/transformed/interpolator-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/8b3ff060764dbd808ef0719c7bfc6dc9/transformed/interpolator-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.exifinterface:exifinterface:1.3.6] /Users/eduardoromcy/.gradle/caches/8.12/transforms/9ae24b6a52cc1132bfa39df853770e89/transformed/exifinterface-1.3.6/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.exifinterface:exifinterface:1.3.6] /Users/eduardoromcy/.gradle/caches/8.12/transforms/9ae24b6a52cc1132bfa39df853770e89/transformed/exifinterface-1.3.6/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/ffda0f1feafde0bf4fd1fbeea4b3c2f1/transformed/profileinstaller-1.4.0/AndroidManifest.xml:21:5-44
+MERGED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/ffda0f1feafde0bf4fd1fbeea4b3c2f1/transformed/profileinstaller-1.4.0/AndroidManifest.xml:21:5-44
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/eduardoromcy/.gradle/caches/8.12/transforms/fdfc2e20ff67ad727ffc4179e0439368/transformed/startup-runtime-1.1.1/AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/eduardoromcy/.gradle/caches/8.12/transforms/fdfc2e20ff67ad727ffc4179e0439368/transformed/startup-runtime-1.1.1/AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.tracing:tracing:1.2.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/a0d9a979370b8cf7d1760c8dd7bbdeb3/transformed/tracing-1.2.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.tracing:tracing:1.2.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/a0d9a979370b8cf7d1760c8dd7bbdeb3/transformed/tracing-1.2.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.documentfile:documentfile:1.0.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/061ba91075ea8ade016df7e18f659787/transformed/documentfile-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.documentfile:documentfile:1.0.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/061ba91075ea8ade016df7e18f659787/transformed/documentfile-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/8274ee4a9071b2bfd270d45cdcb8862a/transformed/localbroadcastmanager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/8274ee4a9071b2bfd270d45cdcb8862a/transformed/localbroadcastmanager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/ad83cc69839ba90140359d166b1c91fa/transformed/print-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/ad83cc69839ba90140359d166b1c91fa/transformed/print-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.2.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/6c43b38a4c4f3068ff8a6fcf6909ac50/transformed/core-runtime-2.2.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.2.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/6c43b38a4c4f3068ff8a6fcf6909ac50/transformed/core-runtime-2.2.0/AndroidManifest.xml:20:5-44
+	android:targetSdkVersion
+		INJECTED from /Users/eduardoromcy/Projetos/FutebolAoVivoSemAtraso/app/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /Users/eduardoromcy/Projetos/FutebolAoVivoSemAtraso/app/src/main/AndroidManifest.xml
+activity#androidx.compose.ui.tooling.PreviewActivity
+ADDED from [androidx.compose.ui:ui-tooling-android:1.10.1] /Users/eduardoromcy/.gradle/caches/8.12/transforms/21d23cfcc63ab995d8de3d323168fc06/transformed/ui-tooling/AndroidManifest.xml:23:9-25:39
+	android:exported
+		ADDED from [androidx.compose.ui:ui-tooling-android:1.10.1] /Users/eduardoromcy/.gradle/caches/8.12/transforms/21d23cfcc63ab995d8de3d323168fc06/transformed/ui-tooling/AndroidManifest.xml:25:13-36
+	android:name
+		ADDED from [androidx.compose.ui:ui-tooling-android:1.10.1] /Users/eduardoromcy/.gradle/caches/8.12/transforms/21d23cfcc63ab995d8de3d323168fc06/transformed/ui-tooling/AndroidManifest.xml:24:13-71
+provider#androidx.startup.InitializationProvider
+ADDED from [androidx.emoji2:emoji2:1.4.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/2f9f1be6200dd49a86114c77d672fb5f/transformed/emoji2-1.4.0/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.lifecycle:lifecycle-process:2.9.4] /Users/eduardoromcy/.gradle/caches/8.12/transforms/c96a5636d1c2710c9ea192c70d5456c7/transformed/lifecycle-process-2.9.4/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.lifecycle:lifecycle-process:2.9.4] /Users/eduardoromcy/.gradle/caches/8.12/transforms/c96a5636d1c2710c9ea192c70d5456c7/transformed/lifecycle-process-2.9.4/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/ffda0f1feafde0bf4fd1fbeea4b3c2f1/transformed/profileinstaller-1.4.0/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/ffda0f1feafde0bf4fd1fbeea4b3c2f1/transformed/profileinstaller-1.4.0/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/eduardoromcy/.gradle/caches/8.12/transforms/fdfc2e20ff67ad727ffc4179e0439368/transformed/startup-runtime-1.1.1/AndroidManifest.xml:26:9-30:34
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/eduardoromcy/.gradle/caches/8.12/transforms/fdfc2e20ff67ad727ffc4179e0439368/transformed/startup-runtime-1.1.1/AndroidManifest.xml:26:9-30:34
+	tools:node
+		ADDED from [androidx.emoji2:emoji2:1.4.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/2f9f1be6200dd49a86114c77d672fb5f/transformed/emoji2-1.4.0/AndroidManifest.xml:28:13-31
+	android:authorities
+		ADDED from [androidx.emoji2:emoji2:1.4.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/2f9f1be6200dd49a86114c77d672fb5f/transformed/emoji2-1.4.0/AndroidManifest.xml:26:13-68
+	android:exported
+		ADDED from [androidx.emoji2:emoji2:1.4.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/2f9f1be6200dd49a86114c77d672fb5f/transformed/emoji2-1.4.0/AndroidManifest.xml:27:13-37
+	android:name
+		ADDED from [androidx.emoji2:emoji2:1.4.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/2f9f1be6200dd49a86114c77d672fb5f/transformed/emoji2-1.4.0/AndroidManifest.xml:25:13-67
+meta-data#androidx.emoji2.text.EmojiCompatInitializer
+ADDED from [androidx.emoji2:emoji2:1.4.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/2f9f1be6200dd49a86114c77d672fb5f/transformed/emoji2-1.4.0/AndroidManifest.xml:29:13-31:52
+	android:value
+		ADDED from [androidx.emoji2:emoji2:1.4.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/2f9f1be6200dd49a86114c77d672fb5f/transformed/emoji2-1.4.0/AndroidManifest.xml:31:17-49
+	android:name
+		ADDED from [androidx.emoji2:emoji2:1.4.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/2f9f1be6200dd49a86114c77d672fb5f/transformed/emoji2-1.4.0/AndroidManifest.xml:30:17-75
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from [androidx.media3:media3-common:1.6.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/1926d857e10842ff5fc06ab0aaa99e10/transformed/media3-common-1.6.0/AndroidManifest.xml:22:5-79
+MERGED from [androidx.media3:media3-exoplayer:1.6.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/497d9bc0a96ae888382f3c7db2d8bff5/transformed/media3-exoplayer-1.6.0/AndroidManifest.xml:22:5-79
+MERGED from [androidx.media3:media3-exoplayer:1.6.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/497d9bc0a96ae888382f3c7db2d8bff5/transformed/media3-exoplayer-1.6.0/AndroidManifest.xml:22:5-79
+	android:name
+		ADDED from [androidx.media3:media3-common:1.6.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/1926d857e10842ff5fc06ab0aaa99e10/transformed/media3-common-1.6.0/AndroidManifest.xml:22:22-76
+uses-library#androidx.window.extensions
+ADDED from [androidx.window:window:1.5.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/965e629a22454b4933ecec5531666e3d/transformed/window-1.5.0/AndroidManifest.xml:23:9-25:40
+	android:required
+		ADDED from [androidx.window:window:1.5.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/965e629a22454b4933ecec5531666e3d/transformed/window-1.5.0/AndroidManifest.xml:25:13-37
+	android:name
+		ADDED from [androidx.window:window:1.5.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/965e629a22454b4933ecec5531666e3d/transformed/window-1.5.0/AndroidManifest.xml:24:13-54
+uses-library#androidx.window.sidecar
+ADDED from [androidx.window:window:1.5.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/965e629a22454b4933ecec5531666e3d/transformed/window-1.5.0/AndroidManifest.xml:26:9-28:40
+	android:required
+		ADDED from [androidx.window:window:1.5.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/965e629a22454b4933ecec5531666e3d/transformed/window-1.5.0/AndroidManifest.xml:28:13-37
+	android:name
+		ADDED from [androidx.window:window:1.5.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/965e629a22454b4933ecec5531666e3d/transformed/window-1.5.0/AndroidManifest.xml:27:13-51
+permission#${applicationId}.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.16.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/091f5736024c8b75f8b5efd30ca8eeb0/transformed/core-1.16.0/AndroidManifest.xml:22:5-24:47
+	android:protectionLevel
+		ADDED from [androidx.core:core:1.16.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/091f5736024c8b75f8b5efd30ca8eeb0/transformed/core-1.16.0/AndroidManifest.xml:24:9-44
+	android:name
+		ADDED from [androidx.core:core:1.16.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/091f5736024c8b75f8b5efd30ca8eeb0/transformed/core-1.16.0/AndroidManifest.xml:23:9-81
+permission#com.e2dsys.futebolaovivosematraso.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.16.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/091f5736024c8b75f8b5efd30ca8eeb0/transformed/core-1.16.0/AndroidManifest.xml:22:5-24:47
+	android:protectionLevel
+		ADDED from [androidx.core:core:1.16.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/091f5736024c8b75f8b5efd30ca8eeb0/transformed/core-1.16.0/AndroidManifest.xml:24:9-44
+	android:name
+		ADDED from [androidx.core:core:1.16.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/091f5736024c8b75f8b5efd30ca8eeb0/transformed/core-1.16.0/AndroidManifest.xml:23:9-81
+uses-permission#${applicationId}.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.16.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/091f5736024c8b75f8b5efd30ca8eeb0/transformed/core-1.16.0/AndroidManifest.xml:26:5-97
+	android:name
+		ADDED from [androidx.core:core:1.16.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/091f5736024c8b75f8b5efd30ca8eeb0/transformed/core-1.16.0/AndroidManifest.xml:26:22-94
+uses-permission#com.e2dsys.futebolaovivosematraso.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.16.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/091f5736024c8b75f8b5efd30ca8eeb0/transformed/core-1.16.0/AndroidManifest.xml:26:5-97
+	android:name
+		ADDED from [androidx.core:core:1.16.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/091f5736024c8b75f8b5efd30ca8eeb0/transformed/core-1.16.0/AndroidManifest.xml:26:22-94
+meta-data#androidx.lifecycle.ProcessLifecycleInitializer
+ADDED from [androidx.lifecycle:lifecycle-process:2.9.4] /Users/eduardoromcy/.gradle/caches/8.12/transforms/c96a5636d1c2710c9ea192c70d5456c7/transformed/lifecycle-process-2.9.4/AndroidManifest.xml:29:13-31:52
+	android:value
+		ADDED from [androidx.lifecycle:lifecycle-process:2.9.4] /Users/eduardoromcy/.gradle/caches/8.12/transforms/c96a5636d1c2710c9ea192c70d5456c7/transformed/lifecycle-process-2.9.4/AndroidManifest.xml:31:17-49
+	android:name
+		ADDED from [androidx.lifecycle:lifecycle-process:2.9.4] /Users/eduardoromcy/.gradle/caches/8.12/transforms/c96a5636d1c2710c9ea192c70d5456c7/transformed/lifecycle-process-2.9.4/AndroidManifest.xml:30:17-78
+meta-data#androidx.profileinstaller.ProfileInstallerInitializer
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/ffda0f1feafde0bf4fd1fbeea4b3c2f1/transformed/profileinstaller-1.4.0/AndroidManifest.xml:29:13-31:52
+	android:value
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/ffda0f1feafde0bf4fd1fbeea4b3c2f1/transformed/profileinstaller-1.4.0/AndroidManifest.xml:31:17-49
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/ffda0f1feafde0bf4fd1fbeea4b3c2f1/transformed/profileinstaller-1.4.0/AndroidManifest.xml:30:17-85
+receiver#androidx.profileinstaller.ProfileInstallReceiver
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/ffda0f1feafde0bf4fd1fbeea4b3c2f1/transformed/profileinstaller-1.4.0/AndroidManifest.xml:34:9-52:20
+	android:enabled
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/ffda0f1feafde0bf4fd1fbeea4b3c2f1/transformed/profileinstaller-1.4.0/AndroidManifest.xml:37:13-35
+	android:exported
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/ffda0f1feafde0bf4fd1fbeea4b3c2f1/transformed/profileinstaller-1.4.0/AndroidManifest.xml:38:13-36
+	android:permission
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/ffda0f1feafde0bf4fd1fbeea4b3c2f1/transformed/profileinstaller-1.4.0/AndroidManifest.xml:39:13-57
+	android:directBootAware
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/ffda0f1feafde0bf4fd1fbeea4b3c2f1/transformed/profileinstaller-1.4.0/AndroidManifest.xml:36:13-44
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/ffda0f1feafde0bf4fd1fbeea4b3c2f1/transformed/profileinstaller-1.4.0/AndroidManifest.xml:35:13-76
+intent-filter#action:name:androidx.profileinstaller.action.INSTALL_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/ffda0f1feafde0bf4fd1fbeea4b3c2f1/transformed/profileinstaller-1.4.0/AndroidManifest.xml:40:13-42:29
+action#androidx.profileinstaller.action.INSTALL_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/ffda0f1feafde0bf4fd1fbeea4b3c2f1/transformed/profileinstaller-1.4.0/AndroidManifest.xml:41:17-91
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/ffda0f1feafde0bf4fd1fbeea4b3c2f1/transformed/profileinstaller-1.4.0/AndroidManifest.xml:41:25-88
+intent-filter#action:name:androidx.profileinstaller.action.SKIP_FILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/ffda0f1feafde0bf4fd1fbeea4b3c2f1/transformed/profileinstaller-1.4.0/AndroidManifest.xml:43:13-45:29
+action#androidx.profileinstaller.action.SKIP_FILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/ffda0f1feafde0bf4fd1fbeea4b3c2f1/transformed/profileinstaller-1.4.0/AndroidManifest.xml:44:17-85
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/ffda0f1feafde0bf4fd1fbeea4b3c2f1/transformed/profileinstaller-1.4.0/AndroidManifest.xml:44:25-82
+intent-filter#action:name:androidx.profileinstaller.action.SAVE_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/ffda0f1feafde0bf4fd1fbeea4b3c2f1/transformed/profileinstaller-1.4.0/AndroidManifest.xml:46:13-48:29
+action#androidx.profileinstaller.action.SAVE_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/ffda0f1feafde0bf4fd1fbeea4b3c2f1/transformed/profileinstaller-1.4.0/AndroidManifest.xml:47:17-88
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/ffda0f1feafde0bf4fd1fbeea4b3c2f1/transformed/profileinstaller-1.4.0/AndroidManifest.xml:47:25-85
+intent-filter#action:name:androidx.profileinstaller.action.BENCHMARK_OPERATION
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/ffda0f1feafde0bf4fd1fbeea4b3c2f1/transformed/profileinstaller-1.4.0/AndroidManifest.xml:49:13-51:29
+action#androidx.profileinstaller.action.BENCHMARK_OPERATION
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/ffda0f1feafde0bf4fd1fbeea4b3c2f1/transformed/profileinstaller-1.4.0/AndroidManifest.xml:50:17-95
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/ffda0f1feafde0bf4fd1fbeea4b3c2f1/transformed/profileinstaller-1.4.0/AndroidManifest.xml:50:25-92

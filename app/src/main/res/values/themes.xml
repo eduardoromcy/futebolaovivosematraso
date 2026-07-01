@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.FutebolAoVivoSemAtraso" parent="Theme.AppCompat.NoActionBar">
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark">@color/primary_variant</item>
+        <item name="colorAccent">@color/secondary</item>
+        <item name="android:colorBackground">@color/background</item>
+    </style>
+
+    <style name="Theme.FutebolAoVivoSemAtraso.Player" parent="Theme.FutebolAoVivoSemAtraso">
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+
+    <style name="Theme.FutebolAoVivoSemAtraso.Tv" parent="Theme.FutebolAoVivoSemAtraso">
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+</resources>

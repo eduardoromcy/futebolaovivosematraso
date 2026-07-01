@@ -1,0 +1,25 @@
+<lint-module
+    format="1"
+    dir="/Users/eduardoromcy/Projetos/FutebolAoVivoSemAtraso/app"
+    name=":app"
+    type="APP"
+    maven="FutebolAoVivoSemAtraso:app:unspecified"
+    agpVersion="8.8.0"
+    buildFolder="build"
+    bootClassPath="/Users/eduardoromcy/Library/Android/sdk/platforms/android-35/android.jar:/Users/eduardoromcy/Library/Android/sdk/build-tools/35.0.0/core-lambda-stubs.jar"
+    javaSourceLevel="17"
+    compileTarget="android-35">
+  <lintOptions
+      disable="UnsafeOptInUsageError"
+      abortOnError="true"
+      absolutePaths="true"
+      checkReleaseBuilds="true"
+      explainIssues="true">
+    <severities>
+      <severity
+        id="UnsafeOptInUsageError"
+        severity="IGNORE" />
+    </severities>
+  </lintOptions>
+  <variant name="release"/>
+</lint-module>

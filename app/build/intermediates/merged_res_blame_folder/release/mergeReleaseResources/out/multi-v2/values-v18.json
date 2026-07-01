@@ -1,0 +1,38 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.e2dsys.futebolaovivosematraso.app-mergeReleaseResources-48:/values-v18/values-v18.xml",
+            "map": [
+                {
+                    "source": "/Users/eduardoromcy/.gradle/caches/8.12/transforms/ce0401883da6bc80ab175296b5ae531c/transformed/appcompat-1.7.0/res/values-v18/values-v18.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "48",
+                        "endOffsets": "99"
+                    }
+                },
+                {
+                    "source": "/Users/eduardoromcy/.gradle/caches/8.12/transforms/7e8302ed5fc15c02d5653e962cc3150c/transformed/leanback-1.2.0/res/values-v18/values-v18.xml",
+                    "from": {
+                        "startLines": "2,12",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,765",
+                        "endLines": "11,20",
+                        "endColumns": "12,12",
+                        "endOffsets": "760,1352"
+                    },
+                    "to": {
+                        "startLines": "3,13",
+                        "startColumns": "4,4",
+                        "startOffsets": "104,814",
+                        "endLines": "12,21",
+                        "endColumns": "12,12",
+                        "endOffsets": "809,1401"
+                    }
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,205 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.e2dsys.futebolaovivosematraso"
+4    android:versionCode="1"
+5    android:versionName="1.0.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="26"
+9        android:targetSdkVersion="35" />
+10
+11    <uses-feature
+11-->/Users/eduardoromcy/Projetos/FutebolAoVivoSemAtraso/app/src/main/AndroidManifest.xml:4:5-6:36
+12        android:name="android.software.leanback"
+12-->/Users/eduardoromcy/Projetos/FutebolAoVivoSemAtraso/app/src/main/AndroidManifest.xml:5:9-49
+13        android:required="false" />
+13-->/Users/eduardoromcy/Projetos/FutebolAoVivoSemAtraso/app/src/main/AndroidManifest.xml:6:9-33
+14    <uses-feature
+14-->/Users/eduardoromcy/Projetos/FutebolAoVivoSemAtraso/app/src/main/AndroidManifest.xml:7:5-9:36
+15        android:name="android.hardware.touchscreen"
+15-->/Users/eduardoromcy/Projetos/FutebolAoVivoSemAtraso/app/src/main/AndroidManifest.xml:8:9-52
+16        android:required="false" />
+16-->/Users/eduardoromcy/Projetos/FutebolAoVivoSemAtraso/app/src/main/AndroidManifest.xml:9:9-33
+17    <uses-feature
+17-->/Users/eduardoromcy/Projetos/FutebolAoVivoSemAtraso/app/src/main/AndroidManifest.xml:10:5-12:36
+18        android:name="android.hardware.microphone"
+18-->/Users/eduardoromcy/Projetos/FutebolAoVivoSemAtraso/app/src/main/AndroidManifest.xml:11:9-51
+19        android:required="false" />
+19-->/Users/eduardoromcy/Projetos/FutebolAoVivoSemAtraso/app/src/main/AndroidManifest.xml:12:9-33
+20
+21    <uses-permission android:name="android.permission.INTERNET" />
+21-->/Users/eduardoromcy/Projetos/FutebolAoVivoSemAtraso/app/src/main/AndroidManifest.xml:14:5-67
+21-->/Users/eduardoromcy/Projetos/FutebolAoVivoSemAtraso/app/src/main/AndroidManifest.xml:14:22-64
+22    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+22-->[androidx.media3:media3-common:1.6.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/1926d857e10842ff5fc06ab0aaa99e10/transformed/media3-common-1.6.0/AndroidManifest.xml:22:5-79
+22-->[androidx.media3:media3-common:1.6.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/1926d857e10842ff5fc06ab0aaa99e10/transformed/media3-common-1.6.0/AndroidManifest.xml:22:22-76
+23
+24    <permission
+24-->[androidx.core:core:1.16.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/091f5736024c8b75f8b5efd30ca8eeb0/transformed/core-1.16.0/AndroidManifest.xml:22:5-24:47
+25        android:name="com.e2dsys.futebolaovivosematraso.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+25-->[androidx.core:core:1.16.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/091f5736024c8b75f8b5efd30ca8eeb0/transformed/core-1.16.0/AndroidManifest.xml:23:9-81
+26        android:protectionLevel="signature" />
+26-->[androidx.core:core:1.16.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/091f5736024c8b75f8b5efd30ca8eeb0/transformed/core-1.16.0/AndroidManifest.xml:24:9-44
+27
+28    <uses-permission android:name="com.e2dsys.futebolaovivosematraso.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+28-->[androidx.core:core:1.16.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/091f5736024c8b75f8b5efd30ca8eeb0/transformed/core-1.16.0/AndroidManifest.xml:26:5-97
+28-->[androidx.core:core:1.16.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/091f5736024c8b75f8b5efd30ca8eeb0/transformed/core-1.16.0/AndroidManifest.xml:26:22-94
+29
+30    <application
+30-->/Users/eduardoromcy/Projetos/FutebolAoVivoSemAtraso/app/src/main/AndroidManifest.xml:16:5-52:19
+31        android:name="com.e2dsys.futebolaovivosematraso.App"
+31-->/Users/eduardoromcy/Projetos/FutebolAoVivoSemAtraso/app/src/main/AndroidManifest.xml:17:9-28
+32        android:allowBackup="false"
+32-->/Users/eduardoromcy/Projetos/FutebolAoVivoSemAtraso/app/src/main/AndroidManifest.xml:18:9-36
+33        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+33-->[androidx.core:core:1.16.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/091f5736024c8b75f8b5efd30ca8eeb0/transformed/core-1.16.0/AndroidManifest.xml:28:18-86
+34        android:banner="@drawable/tv_banner"
+34-->/Users/eduardoromcy/Projetos/FutebolAoVivoSemAtraso/app/src/main/AndroidManifest.xml:24:9-45
+35        android:debuggable="true"
+36        android:extractNativeLibs="false"
+37        android:icon="@mipmap/ic_launcher"
+37-->/Users/eduardoromcy/Projetos/FutebolAoVivoSemAtraso/app/src/main/AndroidManifest.xml:19:9-43
+38        android:label="@string/app_name"
+38-->/Users/eduardoromcy/Projetos/FutebolAoVivoSemAtraso/app/src/main/AndroidManifest.xml:20:9-41
+39        android:roundIcon="@mipmap/ic_launcher_round"
+39-->/Users/eduardoromcy/Projetos/FutebolAoVivoSemAtraso/app/src/main/AndroidManifest.xml:21:9-54
+40        android:supportsRtl="true"
+40-->/Users/eduardoromcy/Projetos/FutebolAoVivoSemAtraso/app/src/main/AndroidManifest.xml:22:9-35
+41        android:theme="@style/Theme.FutebolAoVivoSemAtraso" >
+41-->/Users/eduardoromcy/Projetos/FutebolAoVivoSemAtraso/app/src/main/AndroidManifest.xml:23:9-60
+42        <activity
+42-->/Users/eduardoromcy/Projetos/FutebolAoVivoSemAtraso/app/src/main/AndroidManifest.xml:26:9-34:20
+43            android:name="com.e2dsys.futebolaovivosematraso.MainActivity"
+43-->/Users/eduardoromcy/Projetos/FutebolAoVivoSemAtraso/app/src/main/AndroidManifest.xml:27:13-41
+44            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"
+44-->/Users/eduardoromcy/Projetos/FutebolAoVivoSemAtraso/app/src/main/AndroidManifest.xml:29:13-87
+45            android:exported="true" >
+45-->/Users/eduardoromcy/Projetos/FutebolAoVivoSemAtraso/app/src/main/AndroidManifest.xml:28:13-36
+46            <intent-filter>
+46-->/Users/eduardoromcy/Projetos/FutebolAoVivoSemAtraso/app/src/main/AndroidManifest.xml:30:13-33:29
+47                <action android:name="android.intent.action.MAIN" />
+47-->/Users/eduardoromcy/Projetos/FutebolAoVivoSemAtraso/app/src/main/AndroidManifest.xml:31:17-69
+47-->/Users/eduardoromcy/Projetos/FutebolAoVivoSemAtraso/app/src/main/AndroidManifest.xml:31:25-66
+48
+49                <category android:name="android.intent.category.LAUNCHER" />
+49-->/Users/eduardoromcy/Projetos/FutebolAoVivoSemAtraso/app/src/main/AndroidManifest.xml:32:17-77
+49-->/Users/eduardoromcy/Projetos/FutebolAoVivoSemAtraso/app/src/main/AndroidManifest.xml:32:27-74
+50            </intent-filter>
+51        </activity>
+52        <activity
+52-->/Users/eduardoromcy/Projetos/FutebolAoVivoSemAtraso/app/src/main/AndroidManifest.xml:36:9-44:20
+53            android:name="com.e2dsys.futebolaovivosematraso.TvMainActivity"
+53-->/Users/eduardoromcy/Projetos/FutebolAoVivoSemAtraso/app/src/main/AndroidManifest.xml:37:13-43
+54            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"
+54-->/Users/eduardoromcy/Projetos/FutebolAoVivoSemAtraso/app/src/main/AndroidManifest.xml:39:13-87
+55            android:exported="true" >
+55-->/Users/eduardoromcy/Projetos/FutebolAoVivoSemAtraso/app/src/main/AndroidManifest.xml:38:13-36
+56            <intent-filter>
+56-->/Users/eduardoromcy/Projetos/FutebolAoVivoSemAtraso/app/src/main/AndroidManifest.xml:40:13-43:29
+57                <action android:name="android.intent.action.MAIN" />
+57-->/Users/eduardoromcy/Projetos/FutebolAoVivoSemAtraso/app/src/main/AndroidManifest.xml:31:17-69
+57-->/Users/eduardoromcy/Projetos/FutebolAoVivoSemAtraso/app/src/main/AndroidManifest.xml:31:25-66
+58
+59                <category android:name="android.intent.category.LEANBACK_LAUNCHER" />
+59-->/Users/eduardoromcy/Projetos/FutebolAoVivoSemAtraso/app/src/main/AndroidManifest.xml:42:17-86
+59-->/Users/eduardoromcy/Projetos/FutebolAoVivoSemAtraso/app/src/main/AndroidManifest.xml:42:27-83
+60            </intent-filter>
+61        </activity>
+62        <activity
+62-->/Users/eduardoromcy/Projetos/FutebolAoVivoSemAtraso/app/src/main/AndroidManifest.xml:46:9-50:74
+63            android:name="com.e2dsys.futebolaovivosematraso.PlayerActivity"
+63-->/Users/eduardoromcy/Projetos/FutebolAoVivoSemAtraso/app/src/main/AndroidManifest.xml:47:13-43
+64            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"
+64-->/Users/eduardoromcy/Projetos/FutebolAoVivoSemAtraso/app/src/main/AndroidManifest.xml:49:13-87
+65            android:exported="false"
+65-->/Users/eduardoromcy/Projetos/FutebolAoVivoSemAtraso/app/src/main/AndroidManifest.xml:48:13-37
+66            android:theme="@style/Theme.FutebolAoVivoSemAtraso.Player" />
+66-->/Users/eduardoromcy/Projetos/FutebolAoVivoSemAtraso/app/src/main/AndroidManifest.xml:50:13-71
+67        <activity
+67-->[androidx.compose.ui:ui-tooling-android:1.10.1] /Users/eduardoromcy/.gradle/caches/8.12/transforms/21d23cfcc63ab995d8de3d323168fc06/transformed/ui-tooling/AndroidManifest.xml:23:9-25:39
+68            android:name="androidx.compose.ui.tooling.PreviewActivity"
+68-->[androidx.compose.ui:ui-tooling-android:1.10.1] /Users/eduardoromcy/.gradle/caches/8.12/transforms/21d23cfcc63ab995d8de3d323168fc06/transformed/ui-tooling/AndroidManifest.xml:24:13-71
+69            android:exported="true" />
+69-->[androidx.compose.ui:ui-tooling-android:1.10.1] /Users/eduardoromcy/.gradle/caches/8.12/transforms/21d23cfcc63ab995d8de3d323168fc06/transformed/ui-tooling/AndroidManifest.xml:25:13-36
+70
+71        <provider
+71-->[androidx.emoji2:emoji2:1.4.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/2f9f1be6200dd49a86114c77d672fb5f/transformed/emoji2-1.4.0/AndroidManifest.xml:24:9-32:20
+72            android:name="androidx.startup.InitializationProvider"
+72-->[androidx.emoji2:emoji2:1.4.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/2f9f1be6200dd49a86114c77d672fb5f/transformed/emoji2-1.4.0/AndroidManifest.xml:25:13-67
+73            android:authorities="com.e2dsys.futebolaovivosematraso.androidx-startup"
+73-->[androidx.emoji2:emoji2:1.4.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/2f9f1be6200dd49a86114c77d672fb5f/transformed/emoji2-1.4.0/AndroidManifest.xml:26:13-68
+74            android:exported="false" >
+74-->[androidx.emoji2:emoji2:1.4.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/2f9f1be6200dd49a86114c77d672fb5f/transformed/emoji2-1.4.0/AndroidManifest.xml:27:13-37
+75            <meta-data
+75-->[androidx.emoji2:emoji2:1.4.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/2f9f1be6200dd49a86114c77d672fb5f/transformed/emoji2-1.4.0/AndroidManifest.xml:29:13-31:52
+76                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+76-->[androidx.emoji2:emoji2:1.4.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/2f9f1be6200dd49a86114c77d672fb5f/transformed/emoji2-1.4.0/AndroidManifest.xml:30:17-75
+77                android:value="androidx.startup" />
+77-->[androidx.emoji2:emoji2:1.4.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/2f9f1be6200dd49a86114c77d672fb5f/transformed/emoji2-1.4.0/AndroidManifest.xml:31:17-49
+78            <meta-data
+78-->[androidx.lifecycle:lifecycle-process:2.9.4] /Users/eduardoromcy/.gradle/caches/8.12/transforms/c96a5636d1c2710c9ea192c70d5456c7/transformed/lifecycle-process-2.9.4/AndroidManifest.xml:29:13-31:52
+79                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+79-->[androidx.lifecycle:lifecycle-process:2.9.4] /Users/eduardoromcy/.gradle/caches/8.12/transforms/c96a5636d1c2710c9ea192c70d5456c7/transformed/lifecycle-process-2.9.4/AndroidManifest.xml:30:17-78
+80                android:value="androidx.startup" />
+80-->[androidx.lifecycle:lifecycle-process:2.9.4] /Users/eduardoromcy/.gradle/caches/8.12/transforms/c96a5636d1c2710c9ea192c70d5456c7/transformed/lifecycle-process-2.9.4/AndroidManifest.xml:31:17-49
+81            <meta-data
+81-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/ffda0f1feafde0bf4fd1fbeea4b3c2f1/transformed/profileinstaller-1.4.0/AndroidManifest.xml:29:13-31:52
+82                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+82-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/ffda0f1feafde0bf4fd1fbeea4b3c2f1/transformed/profileinstaller-1.4.0/AndroidManifest.xml:30:17-85
+83                android:value="androidx.startup" />
+83-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/ffda0f1feafde0bf4fd1fbeea4b3c2f1/transformed/profileinstaller-1.4.0/AndroidManifest.xml:31:17-49
+84        </provider>
+85
+86        <uses-library
+86-->[androidx.window:window:1.5.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/965e629a22454b4933ecec5531666e3d/transformed/window-1.5.0/AndroidManifest.xml:23:9-25:40
+87            android:name="androidx.window.extensions"
+87-->[androidx.window:window:1.5.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/965e629a22454b4933ecec5531666e3d/transformed/window-1.5.0/AndroidManifest.xml:24:13-54
+88            android:required="false" />
+88-->[androidx.window:window:1.5.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/965e629a22454b4933ecec5531666e3d/transformed/window-1.5.0/AndroidManifest.xml:25:13-37
+89        <uses-library
+89-->[androidx.window:window:1.5.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/965e629a22454b4933ecec5531666e3d/transformed/window-1.5.0/AndroidManifest.xml:26:9-28:40
+90            android:name="androidx.window.sidecar"
+90-->[androidx.window:window:1.5.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/965e629a22454b4933ecec5531666e3d/transformed/window-1.5.0/AndroidManifest.xml:27:13-51
+91            android:required="false" />
+91-->[androidx.window:window:1.5.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/965e629a22454b4933ecec5531666e3d/transformed/window-1.5.0/AndroidManifest.xml:28:13-37
+92
+93        <receiver
+93-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/ffda0f1feafde0bf4fd1fbeea4b3c2f1/transformed/profileinstaller-1.4.0/AndroidManifest.xml:34:9-52:20
+94            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+94-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/ffda0f1feafde0bf4fd1fbeea4b3c2f1/transformed/profileinstaller-1.4.0/AndroidManifest.xml:35:13-76
+95            android:directBootAware="false"
+95-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/ffda0f1feafde0bf4fd1fbeea4b3c2f1/transformed/profileinstaller-1.4.0/AndroidManifest.xml:36:13-44
+96            android:enabled="true"
+96-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/ffda0f1feafde0bf4fd1fbeea4b3c2f1/transformed/profileinstaller-1.4.0/AndroidManifest.xml:37:13-35
+97            android:exported="true"
+97-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/ffda0f1feafde0bf4fd1fbeea4b3c2f1/transformed/profileinstaller-1.4.0/AndroidManifest.xml:38:13-36
+98            android:permission="android.permission.DUMP" >
+98-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/ffda0f1feafde0bf4fd1fbeea4b3c2f1/transformed/profileinstaller-1.4.0/AndroidManifest.xml:39:13-57
+99            <intent-filter>
+99-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/ffda0f1feafde0bf4fd1fbeea4b3c2f1/transformed/profileinstaller-1.4.0/AndroidManifest.xml:40:13-42:29
+100                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+100-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/ffda0f1feafde0bf4fd1fbeea4b3c2f1/transformed/profileinstaller-1.4.0/AndroidManifest.xml:41:17-91
+100-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/ffda0f1feafde0bf4fd1fbeea4b3c2f1/transformed/profileinstaller-1.4.0/AndroidManifest.xml:41:25-88
+101            </intent-filter>
+102            <intent-filter>
+102-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/ffda0f1feafde0bf4fd1fbeea4b3c2f1/transformed/profileinstaller-1.4.0/AndroidManifest.xml:43:13-45:29
+103                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+103-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/ffda0f1feafde0bf4fd1fbeea4b3c2f1/transformed/profileinstaller-1.4.0/AndroidManifest.xml:44:17-85
+103-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/ffda0f1feafde0bf4fd1fbeea4b3c2f1/transformed/profileinstaller-1.4.0/AndroidManifest.xml:44:25-82
+104            </intent-filter>
+105            <intent-filter>
+105-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/ffda0f1feafde0bf4fd1fbeea4b3c2f1/transformed/profileinstaller-1.4.0/AndroidManifest.xml:46:13-48:29
+106                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+106-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/ffda0f1feafde0bf4fd1fbeea4b3c2f1/transformed/profileinstaller-1.4.0/AndroidManifest.xml:47:17-88
+106-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/ffda0f1feafde0bf4fd1fbeea4b3c2f1/transformed/profileinstaller-1.4.0/AndroidManifest.xml:47:25-85
+107            </intent-filter>
+108            <intent-filter>
+108-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/ffda0f1feafde0bf4fd1fbeea4b3c2f1/transformed/profileinstaller-1.4.0/AndroidManifest.xml:49:13-51:29
+109                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+109-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/ffda0f1feafde0bf4fd1fbeea4b3c2f1/transformed/profileinstaller-1.4.0/AndroidManifest.xml:50:17-95
+109-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/eduardoromcy/.gradle/caches/8.12/transforms/ffda0f1feafde0bf4fd1fbeea4b3c2f1/transformed/profileinstaller-1.4.0/AndroidManifest.xml:50:25-92
+110            </intent-filter>
+111        </receiver>
+112    </application>
+113
+114</manifest>

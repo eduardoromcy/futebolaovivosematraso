@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="background">#121212</color>
+    <color name="black">#FF000000</color>
+    <color name="on_primary">#FFFFFF</color>
+    <color name="on_secondary">#000000</color>
+    <color name="primary">#1B5E20</color>
+    <color name="primary_variant">#2E7D32</color>
+    <color name="secondary">#FF6F00</color>
+    <color name="surface">#1E1E1E</color>
+    <color name="white">#FFFFFFFF</color>
+    <string name="app_name">Futebol Ao Vivo Sem Atraso</string>
+    <style name="Theme.FutebolAoVivoSemAtraso" parent="Theme.AppCompat.NoActionBar">
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark">@color/primary_variant</item>
+        <item name="colorAccent">@color/secondary</item>
+        <item name="android:colorBackground">@color/background</item>
+    </style>
+    <style name="Theme.FutebolAoVivoSemAtraso.Player" parent="Theme.FutebolAoVivoSemAtraso">
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+</resources>

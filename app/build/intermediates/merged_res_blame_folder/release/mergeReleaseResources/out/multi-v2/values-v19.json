@@ -1,0 +1,20 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.e2dsys.futebolaovivosematraso.app-mergeReleaseResources-48:/values-v19/values-v19.xml",
+            "map": [
+                {
+                    "source": "/Users/eduardoromcy/.gradle/caches/8.12/transforms/7e8302ed5fc15c02d5653e962cc3150c/transformed/leanback-1.2.0/res/values-v19/values-v19.xml",
+                    "from": {
+                        "startLines": "2,17",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,972",
+                        "endLines": "16,25",
+                        "endColumns": "12,12",
+                        "endOffsets": "967,1576"
+                    }
+                }
+            ]
+        }
+    ]
+}

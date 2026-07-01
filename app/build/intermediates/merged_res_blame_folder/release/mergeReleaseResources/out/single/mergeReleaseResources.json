@@ -1,0 +1,42 @@
+[
+    {
+        "merged": "/Users/eduardoromcy/.gradle/daemon/8.12/com.e2dsys.futebolaovivosematraso.app-release-50:/drawable_ic_launcher_foreground.xml.flat",
+        "source": "/Users/eduardoromcy/.gradle/daemon/8.12/com.e2dsys.futebolaovivosematraso.app-main-51:/drawable/ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "/Users/eduardoromcy/.gradle/daemon/8.12/com.e2dsys.futebolaovivosematraso.app-release-50:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "/Users/eduardoromcy/.gradle/daemon/8.12/com.e2dsys.futebolaovivosematraso.app-main-51:/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
+        "merged": "/Users/eduardoromcy/.gradle/daemon/8.12/com.e2dsys.futebolaovivosematraso.app-release-50:/drawable_tv_item_bg.xml.flat",
+        "source": "/Users/eduardoromcy/.gradle/daemon/8.12/com.e2dsys.futebolaovivosematraso.app-main-51:/drawable/tv_item_bg.xml"
+    },
+    {
+        "merged": "/Users/eduardoromcy/.gradle/daemon/8.12/com.e2dsys.futebolaovivosematraso.app-release-50:/drawable_tv_banner.xml.flat",
+        "source": "/Users/eduardoromcy/.gradle/daemon/8.12/com.e2dsys.futebolaovivosematraso.app-main-51:/drawable/tv_banner.xml"
+    },
+    {
+        "merged": "/Users/eduardoromcy/.gradle/daemon/8.12/com.e2dsys.futebolaovivosematraso.app-release-50:/layout_activity_tv_main.xml.flat",
+        "source": "/Users/eduardoromcy/.gradle/daemon/8.12/com.e2dsys.futebolaovivosematraso.app-main-51:/layout/activity_tv_main.xml"
+    },
+    {
+        "merged": "/Users/eduardoromcy/.gradle/daemon/8.12/com.e2dsys.futebolaovivosematraso.app-release-50:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "/Users/eduardoromcy/.gradle/daemon/8.12/com.e2dsys.futebolaovivosematraso.app-main-51:/mipmap-anydpi-v26/ic_launcher_round.xml"
+    },
+    {
+        "merged": "/Users/eduardoromcy/.gradle/daemon/8.12/com.e2dsys.futebolaovivosematraso.app-release-50:/layout_item_tv_stream.xml.flat",
+        "source": "/Users/eduardoromcy/.gradle/daemon/8.12/com.e2dsys.futebolaovivosematraso.app-main-51:/layout/item_tv_stream.xml"
+    },
+    {
+        "merged": "com.e2dsys.futebolaovivosematraso.app-release-50:/layout_activity_player.xml.flat",
+        "source": "com.e2dsys.futebolaovivosematraso.app-main-51:/layout/activity_player.xml"
+    },
+    {
+        "merged": "/Users/eduardoromcy/.gradle/daemon/8.12/com.e2dsys.futebolaovivosematraso.app-release-50:/layout_activity_main.xml.flat",
+        "source": "/Users/eduardoromcy/.gradle/daemon/8.12/com.e2dsys.futebolaovivosematraso.app-main-51:/layout/activity_main.xml"
+    },
+    {
+        "merged": "/Users/eduardoromcy/.gradle/daemon/8.12/com.e2dsys.futebolaovivosematraso.app-release-50:/layout_activity_player.xml.flat",
+        "source": "/Users/eduardoromcy/.gradle/daemon/8.12/com.e2dsys.futebolaovivosematraso.app-main-51:/layout/activity_player.xml"
+    }
+]
