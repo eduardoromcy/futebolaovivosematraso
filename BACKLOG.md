@@ -5,16 +5,17 @@
 ### WebView + Engine (PlayerActivity.kt)
 
 - [x] WebView com `youtube.com/watch?v=...` — desktop UA (Windows Chrome 125)
-- [x] Engine JS com estratégia **adaptativa** (igual à extensão live-catch-up):
-  - buffer < 1.0s → 1.0x (safety)
-  - isAtLiveHead → 1.0x
-  - atrasado → acelera na velocidade do modo (sem esperar buffer)
+- [x] Engine JS com estratégia **buffer-based pura** (igual smooth/aggressive mode da extensão):
+  - buffer >= threshold(`segduration` × 2) → acelera na velocidade do modo
+  - buffer < threshold → 1.0x (deixa buffer encher)
+  - **isAtLiveHead é ignorado** para decisão de velocidade (só informativo)
 - [x] `setPlaybackRate()` via `document.getElementById('movie_player')` (funciona com SABR/manifestless)
 - [x] Leitura de `getStatsForNerds()` (live_latency_secs, buffer_health_seconds)
 - [x] Leitura de `getProgressState()` (isAtLiveHead, seekableEnd, current)
+- [x] **Buffer threshold auto-ajustado**: `max(2, min(6, segduration × 2))`
 - [x] **3 modos de velocidade**: Suave (1.1x), Equilibrado (1.25x), Agressivo (1.5x)
 - [x] Seletor de modo no overlay superior (botões)
-- [x] Banner de status com 3 estados: ⚡ Acelerando, ✅ Ao Vivo, ⏳ Aguardando
+- [x] Banner de status com 2 estados: ⚡ Acelerando, ⏳ Aguardando buffer
 - [x] **Estimativa de chegada**: mostra "chegando ~Xs" durante aceleração
 - [x] **Tick rate 250ms** (4x/segundo)
 - [x] **Skip threshold safety net**: se delay > 30s, seek ao vivo
@@ -53,25 +54,22 @@ Repo de referência: [yudai-tiny-developer/live-catch-up](https://github.com/yud
 
 | Funcionalidade | Nós | Extensão |
 |---|---|---|
-| **Estratégia de catch-up** | Adaptativa: atrasado → acelera | Adaptativa: buffer > threshold → acelera |
-| **Playback rate API** | `player.setPlaybackRate()` ✅ (funciona SABR) | `video.playbackRate` ❌ (provavelmente ignorado) |
+| **Estratégia** | Buffer-based: threshold = segdur × 2 | Buffer-based: threshold = segdur × 2 |
+| **Playback API** | `player.setPlaybackRate()` ✅ SABR | `video.playbackRate` ❌ |
 | **Tick rate** | 250ms ✅ | 250ms |
-| **Estimativa de chegada** | ✅ "chegando ~Xs" no banner | ✅ "(14:32)" na barra do YouTube |
-| **Skip threshold** | ✅ 30s (fixo) | ✅ 300s (configurável) |
-| **Buffer safety** | buffer < 1.0s → 1.0x | buffer < threshold → 1.0x |
-| **Stats** | `getStatsForNerds()` | `getStatsForNerds()` |
-| **Progress** | `getProgressState()` | `getProgressState()` |
-| **Respeitar controle manual** | ❌ (deliberado) | ✅ só acelera se speed = 1.0 |
-| **Indicadores visuais** | Banner no topo | Botões na barra do YouTube |
+| **Estimativa** | ✅ "chegando ~Xs" no banner | ✅ "(14:32)" na barra |
+| **Safety net seek** | ✅ 30s (fixo) | ✅ 300s (configurável) |
+| **Buffer threshold** | auto: segdur × 2 (clamped 2-6s) | auto: segdur × 2 |
 | **Modos** | 3 fixos (1.1x / 1.25x / 1.5x) | 1 configurável (1.05x–16x) |
-| **Fallback seek** | Apenas safety net (30s) | Configurável (default 300s) |
-| **Stream ended detection** | ❌ | ✅ detecta se live acabou |
-| **Timestamp copy** | ❌ | ✅ click copia URL |
-| **Persistence** | ❌ (reinicia modo padrão) | ✅ chrome.storage |
+| **Respeitar manual** | ❌ | ✅ só se speed = 1.0 |
+| **Indicadores** | Banner no topo | Botões na barra YouTube |
+| **Stream ended** | ❌ | ✅ detecta |
+| **Timestamp copy** | ❌ | ✅ |
+| **Persistence** | ❌ | ✅ chrome.storage |
 
 ### Resumo
 
-Nossa engine é **funcionalmente equivalente** na parte central de catch-up. Nossa vantagem principal é usar `player.setPlaybackRate()` que funciona com streams SABR modernas, enquanto a extensão usa `video.playbackRate` que provavelmente é ignorado pelo YouTube.
+Nossa engine é **praticamente idêntica** à extensão agora: ambas usam buffer-based com threshold auto-ajustado por `segduration`. Nossa vantagem principal é usar `player.setPlaybackRate()` que funciona com SABR, enquanto a extensão usa `video.playbackRate` que é ignorado pelo YouTube moderno.
 
 A extensão ainda tem vantagens em: UI integrada ao player, stream ended detection, configuração persistente.
 
@@ -97,6 +95,6 @@ A extensão ainda tem vantagens em: UI integrada ao player, stream ended detecti
 
 ## Próximos passos
 
-1. Testar em live real: verificar se o badge AO VIVO fica ativo e o delay reduz
+1. Testar em live real: verificar se a aceleração acontece consistentemente
 2. Se a engine não encontrar `movie_player` (Shadow DOM), adicionar fallback com `querySelector`
-3. Ajustar tick rate ou safety net baseado em testes reais
+3. Ajustar threshold ou safety net baseado em testes reais

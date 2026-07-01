@@ -6,12 +6,11 @@ App Android que renderiza lives do YouTube com **atraso mínimo**, usando um Web
 
 1. Carrega o canal configurado (@cazetv por padrão) e lista as lives ativas
 2. Ao selecionar uma live, abre um WebView com a página `youtube.com/watch?v=...`
-3. Injeta uma engine JavaScript que acelera o playback sempre que estamos atrasados:
+3. Injeta uma engine JavaScript que acelera o playback baseado no buffer:
 
 ```
-buffer baixo (< 1s) → 1.0x (prevenir pausas)
-ao vivo          → 1.0x (já sincronizou)
-atrasado         → acelera na velocidade do modo
+buffer >= threshold → acelera na velocidade do modo (ignora isAtLiveHead)
+buffer < threshold  → 1.0x (deixa o buffer encher)
 ```
 
 ### Engine
@@ -19,10 +18,11 @@ atrasado         → acelera na velocidade do modo
 - Usa `document.getElementById('movie_player').setPlaybackRate()` — funciona com streams SABR/manifestless modernas
 - Lê latência e buffer via `getStatsForNerds()`, progresso via `getProgressState()`
 - **Tick rate**: 250ms (4x/segundo)
+- **Buffer threshold auto-ajustado**: 2-6s baseado no `latencyClass` da stream (ULTRA_LOW, LOW, normal)
 - **Estimativa de chegada**: mostra quantos segundos faltam pra alcançar o ao vivo
 - **Skip threshold safety net**: se o delay ultrapassar 30s, força seek ao vivo
 - **3 modos de velocidade**: Suave (1.1x), Equilibrado (1.25x), Agressivo (1.5x)
-- **3 status no banner**: ⚡ Acelerando, ✅ Ao Vivo, ⏳ Aguardando buffer
+- **2 status no banner**: ⚡ Acelerando, ⏳ Aguardando buffer
 
 ## Build
 

@@ -149,6 +149,23 @@ class PlayerActivity : AppCompatActivity() {
                         return "Equilibrado";
                     },
                     
+                    getBufferThreshold: function() {
+                        var seg = 5.0;
+                        try {
+                            var stats = ZD.player.getVideoStats ? ZD.player.getVideoStats() : null;
+                            if (stats && stats.segduration) seg = stats.segduration;
+                            else {
+                                var resp = ZD.player.getPlayerResponse ? ZD.player.getPlayerResponse() : null;
+                                if (resp && resp.videoDetails) {
+                                    var lc = resp.videoDetails.latencyClass;
+                                    if (lc === 'MDE_STREAM_OPTIMIZATIONS_RENDERER_LATENCY_ULTRA_LOW') seg = 1;
+                                    else if (lc === 'MDE_STREAM_OPTIMIZATIONS_RENDERER_LATENCY_LOW') seg = 2;
+                                }
+                            }
+                        } catch(e) {}
+                        return Math.max(2.0, Math.min(6.0, seg * 2));
+                    },
+                    
                     findPlayer: function() {
                         try { return document.getElementById('movie_player'); } catch(e) { return null; }
                     },
@@ -212,13 +229,12 @@ class PlayerActivity : AppCompatActivity() {
                                 }
                             }
                             
-                            // Catch-up: accelerate whenever behind live, no buffer threshold
+                            // Buffer-based catch-up (ignores isAtLiveHead, matches extension's smooth mode)
                             var maxSpeed = ZD.getModeSpeed(ZD.mode);
+                            var threshold = ZD.getBufferThreshold();
                             var desired = 1.0;
                             
-                            if (ZD.lastHealth < 1.0) {
-                                desired = 1.0;  // safety: prevent buffering
-                            } else if (!ZD.isAtLiveHead) {
+                            if (ZD.lastHealth >= threshold) {
                                 desired = maxSpeed;
                             }
                             
@@ -241,7 +257,7 @@ class PlayerActivity : AppCompatActivity() {
                                     var delay = ZD.seekableEnd - ZD.currentTime;
                                     estimatedSecs = Math.round(delay / (desired - 1.0));
                                 }
-                            } else if (!ZD.isAtLiveHead || ZD.lastLatency >= 3.0) {
+                            } else if (ZD.lastHealth < threshold) {
                                 status = 'waiting';
                             }
                             
