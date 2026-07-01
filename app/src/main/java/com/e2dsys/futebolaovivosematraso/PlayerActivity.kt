@@ -234,16 +234,6 @@ class PlayerActivity : AppCompatActivity() {
                         } catch(e) { /* fail silently */ }
                     },
                     
-                    chatTickCounter: 0,
-                    
-                    hideChat: function() {
-                        try {
-                            var btn = document.querySelector('ytd-live-chat-frame #close-button button, #close-button, ytd-live-chat-frame [aria-label="Close"], ytd-live-chat-frame [aria-label="Fechar"]');
-                            if (btn) { btn.click(); return true; }
-                        } catch(e) {}
-                        return false;
-                    },
-                    
                     tick: function() {
                         try {
                             if (!ZD.player) {
@@ -287,13 +277,6 @@ class PlayerActivity : AppCompatActivity() {
                                 if (delay > 30) {
                                     ZD.seekToLive();
                                 }
-                            }
-                            
-                            // Auto-close chat every ~5s so fullscreen uses full width
-                            ZD.chatTickCounter++;
-                            if (ZD.chatTickCounter >= 20) {
-                                ZD.chatTickCounter = 0;
-                                ZD.hideChat();
                             }
                             
                             var status = 'synced';
