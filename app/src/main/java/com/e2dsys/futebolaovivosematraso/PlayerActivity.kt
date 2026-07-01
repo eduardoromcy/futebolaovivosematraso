@@ -1,6 +1,7 @@
 package com.e2dsys.futebolaovivosematraso
 
 import android.annotation.SuppressLint
+import android.graphics.Bitmap
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -9,6 +10,7 @@ import android.webkit.JavascriptInterface
 import android.webkit.WebChromeClient
 import android.webkit.WebView
 import android.webkit.WebViewClient
+import android.widget.Button
 import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
@@ -16,14 +18,25 @@ import androidx.appcompat.app.AppCompatActivity
 
 class PlayerActivity : AppCompatActivity() {
 
+    companion object {
+        private const val MODE_GENTLE = 1
+        private const val MODE_BALANCED = 2
+        private const val MODE_AGGRESSIVE = 3
+        private const val JS_INTERVAL_MS = 500L
+        private const val BANNER_HIDE_DELAY_MS = 10000L
+    }
+
     private val mainHandler = Handler(Looper.getMainLooper())
-    private val speedCheckRunnable = object : Runnable {
+    private var engineRunning = false
+    private var currentMode = MODE_BALANCED
+    private var webViewGone = false
+
+    private val engineRunnable = object : Runnable {
         override fun run() {
-            val wv = findViewById<WebView>(R.id.youtubeWebView)
-            if (wv != null) {
-                injectCatchUpJs(wv)
-                mainHandler.postDelayed(this, 4000)
-            }
+            if (!engineRunning || webViewGone) return
+            val wv = findViewById<WebView>(R.id.youtubeWebView) ?: return
+            wv.evaluateJavascript("if(window.__zeroDelay) window.__zeroDelay.tick();", null)
+            mainHandler.postDelayed(this, JS_INTERVAL_MS)
         }
     }
 
@@ -40,7 +53,32 @@ class PlayerActivity : AppCompatActivity() {
         val webView = findViewById<WebView>(R.id.youtubeWebView)
         val progressBar = findViewById<ProgressBar>(R.id.progressBar)
 
+        setupModeButtons()
         setupWebView(webView, progressBar, youtubeUrl)
+    }
+
+    private fun setupModeButtons() {
+        val btns = listOf(
+            findViewById<Button>(R.id.modeGentle) to MODE_GENTLE,
+            findViewById<Button>(R.id.modeBalanced) to MODE_BALANCED,
+            findViewById<Button>(R.id.modeAggressive) to MODE_AGGRESSIVE,
+        )
+        btns.forEach { (btn, mode) ->
+            btn.isSelected = mode == currentMode
+            btn.setOnClickListener {
+                currentMode = mode
+                btns.forEach { (b, m) -> b.isSelected = m == mode }
+                switchMode(mode)
+            }
+        }
+    }
+
+    private fun switchMode(mode: Int) {
+        val webView = findViewById<WebView>(R.id.youtubeWebView) ?: return
+        webView.evaluateJavascript(
+            "if(window.__zeroDelay) { window.__zeroDelay.mode = $mode; window.__zeroDelay.bufferEma = null; }",
+            null
+        )
     }
 
     @SuppressLint("SetJavaScriptEnabled")
@@ -54,10 +92,11 @@ class PlayerActivity : AppCompatActivity() {
             builtInZoomControls = false
             displayZoomControls = false
             allowContentAccess = true
+            allowFileAccess = true
             userAgentString = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.6422.165 Safari/537.36"
         }
 
-        webView.addJavascriptInterface(JsBridge(), "AndroidBridge")
+        webView.addJavascriptInterface(JsBridge(), "ZeroDelayBridge")
 
         webView.webChromeClient = object : WebChromeClient() {
             override fun onProgressChanged(view: WebView?, newProgress: Int) {
@@ -68,87 +107,292 @@ class PlayerActivity : AppCompatActivity() {
         webView.webViewClient = object : WebViewClient() {
             override fun onPageFinished(view: WebView?, url: String?) {
                 progressBar.visibility = View.GONE
-                mainHandler.postDelayed({
-                    startCatchUp()
-                }, 4000)
+                if (!webViewGone) injectEngineAndStart(view)
+            }
+
+            override fun onPageStarted(view: WebView?, url: String?, favicon: Bitmap?) {
+                webViewGone = false
             }
         }
 
         webView.loadUrl(url)
     }
 
-    private fun startCatchUp() {
-        mainHandler.post(speedCheckRunnable)
-    }
-
     @SuppressLint("SetJavaScriptEnabled")
-    private fun injectCatchUpJs(webView: WebView) {
+    private fun injectEngineAndStart(view: WebView?) {
+        val wv = view ?: return
         val js = """
             (function() {
-                var video = document.querySelector('video');
-                if (!video || !video.seekable || video.seekable.length === 0) return;
-                
-                try {
-                    var liveEnd = video.seekable.end(video.seekable.length - 1);
-                    var delay = liveEnd - video.currentTime;
-                    if (delay < 0) delay = 0;
+                if (window.__zeroDelayInjected) return;
+                window.__zeroDelayInjected = true;
+
+                var ZD = {
+                    player: null,
+                    caps: null,
+                    appliedRate: 1.0,
+                    yieldedToUser: false,
+                    bufferEma: null,
+                    catchingUp: false,
+                    tickErrors: 0,
+                    lastSpeed: 1.0,
+                    lastLatency: 0,
+                    lastHealth: 0,
+                    seekableEnd: 0,
+                    currentTime: 0,
+                    isAtLiveHead: false,
+                    mode: $currentMode,
                     
-                    var speed = 1.0;
-                    if (delay > 60) speed = 2.0;
-                    else if (delay > 30) speed = 1.5;
-                    else if (delay > 10) speed = 1.25;
+                    WARN_BUFFER: 2.5,
+                    BUFFER_FLOOR: 1.5,
+                    BUFFER_BACKOFF: 2.5,
+                    BUFFER_RESUME: 4.0,
+                    CATCH_UP_BAND: 1.5,
+                    MIN_LATENCY: 2.0,
                     
-                    if (speed > 1.0) {
-                        video.playbackRate = speed;
-                        AndroidBridge.onSpeedChange(Number(delay.toFixed(0)), Number(speed));
-                    } else {
-                        video.playbackRate = 1.0;
-                        AndroidBridge.onSpeedChange(Number(delay.toFixed(0)), 1.0);
+                    getModeSpeed: function(mode) {
+                        if (mode === 1) return 1.1;
+                        if (mode === 3) return 1.5;
+                        return 1.25;
+                    },
+                    
+                    getModeLabel: function(mode) {
+                        if (mode === 1) return "Suave";
+                        if (mode === 3) return "Agressivo";
+                        return "Equilibrado";
+                    },
+                    
+                    getSkipThreshold: function(mode) {
+                        if (mode === 1) return 60;
+                        if (mode === 3) return 15;
+                        return 30;
+                    },
+                    
+                    findPlayer: function() {
+                        try { return document.getElementById('movie_player'); } catch(e) { return null; }
+                    },
+                    
+                    probeCaps: function(p) {
+                        if (!p) return null;
+                        try {
+                            return {
+                                stats: typeof p.getStatsForNerds === 'function',
+                                progress: typeof p.getProgressState === 'function',
+                                setRate: typeof p.setPlaybackRate === 'function',
+                                getRate: typeof p.getPlaybackRate === 'function',
+                                seekLive: typeof p.seekToLiveHead === 'function',
+                                playVideo: typeof p.playVideo === 'function',
+                                stateObject: typeof p.getPlayerStateObject === 'function'
+                            };
+                        } catch(e) { return null; }
+                    },
+                    
+                    applyPlaybackRate: function(desired) {
+                        try {
+                            if (!ZD.player || !ZD.caps || !ZD.caps.setRate || !ZD.caps.getRate) return;
+                            var cur = ZD.player.getPlaybackRate();
+                            if (Math.abs(cur - ZD.appliedRate) > 0.01) {
+                                if (Math.abs(cur - 1.0) < 0.01) {
+                                    ZD.appliedRate = 1.0;
+                                    ZD.yieldedToUser = false;
+                                } else {
+                                    ZD.yieldedToUser = true;
+                                    ZD.appliedRate = cur;
+                                }
+                            }
+                            if (ZD.yieldedToUser) return;
+                            if (Math.abs(desired - ZD.appliedRate) > 0.01) {
+                                ZD.player.setPlaybackRate(desired);
+                                ZD.appliedRate = desired;
+                            }
+                        } catch(e) { /* fail silently */ }
+                    },
+                    
+                    skipIfOverThreshold: function(latency) {
+                        try {
+                            if (!ZD.caps || !ZD.caps.seekLive || !ZD.caps.stateObject) return;
+                            var threshold = ZD.getSkipThreshold(ZD.mode);
+                            if (ZD.player && latency >= threshold) {
+                                var state = ZD.player.getPlayerStateObject();
+                                if (state && state.isPlaying) {
+                                    ZD.player.seekToLiveHead();
+                                    if (ZD.caps.playVideo) ZD.player.playVideo();
+                                    ZD.bufferEma = null;
+                                    ZD.catchingUp = false;
+                                }
+                            }
+                        } catch(e) { /* fail silently */ }
+                    },
+                    
+                    calcPlaybackRate: function(speed, latency, health) {
+                        if (!isFinite(health) || !isFinite(latency)) return 1.0;
+                        ZD.bufferEma = ZD.bufferEma === null ? health : ZD.bufferEma * 0.9 + health * 0.1;
+                        if (latency < ZD.MIN_LATENCY) return 1.0;
+                        var target = 6.0;
+                        if (ZD.bufferEma > target + ZD.CATCH_UP_BAND) ZD.catchingUp = true;
+                        else if (ZD.bufferEma <= target) ZD.catchingUp = false;
+                        if (!ZD.catchingUp) return 1.0;
+                        if (health < ZD.BUFFER_FLOOR) return 1.0;
+                        return speed;
+                    },
+                    
+                    tick: function() {
+                        try {
+                            if (!ZD.player) {
+                                ZD.player = ZD.findPlayer();
+                                if (!ZD.player) return;
+                                ZD.caps = ZD.probeCaps(ZD.player);
+                                if (!ZD.caps) return;
+                            }
+                            
+                            if (!ZD.caps.stats) return;
+                            
+                            var stats = ZD.player.getStatsForNerds();
+                            if (!stats || stats.live_latency_style !== '') return;
+                            
+                            ZD.lastLatency = parseFloat(stats.live_latency_secs) || 0;
+                            ZD.lastHealth = parseFloat(stats.buffer_health_seconds) || 0;
+                            
+                            if (ZD.caps.progress) {
+                                var ps = ZD.player.getProgressState();
+                                if (ps) {
+                                    ZD.isAtLiveHead = !!ps.isAtLiveHead;
+                                    ZD.seekableEnd = ps.seekableEnd || 0;
+                                    ZD.currentTime = ps.current || 0;
+                                }
+                            }
+                            
+                            if (ZD.caps.setRate && ZD.caps.getRate) {
+                                var speed = ZD.getModeSpeed(ZD.mode);
+                                var desired = ZD.calcPlaybackRate(speed, ZD.lastLatency, ZD.lastHealth);
+                                ZD.applyPlaybackRate(desired);
+                                ZD.lastSpeed = desired;
+                            }
+                            
+                            ZD.skipIfOverThreshold(ZD.lastLatency);
+                            
+                            ZeroDelayBridge.onTick(
+                                ZD.lastSpeed,
+                                ZD.lastLatency,
+                                ZD.lastHealth,
+                                ZD.isAtLiveHead,
+                                ZD.mode,
+                                ZD.getModeLabel(ZD.mode)
+                            );
+                        } catch(e) {
+                            ZD.tickErrors++;
+                            if (ZD.tickErrors > 50) {
+                                ZD.player = null;
+                                ZD.tickErrors = 0;
+                            }
+                        }
                     }
-                } catch(e) {
-                    AndroidBridge.onError('' + e);
-                }
+                };
+                
+                window.__zeroDelay = ZD;
+
+                var detectInterval = setInterval(function() {
+                    var p = ZD.findPlayer();
+                    if (p) {
+                        ZD.player = p;
+                        ZD.caps = ZD.probeCaps(p);
+                        if (ZD.caps) {
+                            clearInterval(detectInterval);
+                            ZeroDelayBridge.onReady();
+                        }
+                    }
+                }, 500);
             })();
         """.trimIndent()
-        webView.evaluateJavascript(js, null)
+        wv.evaluateJavascript(js, null)
     }
 
     inner class JsBridge {
         @JavascriptInterface
-        fun onSpeedChange(delaySec: Int, speed: Double) {
+        fun onReady() {
+            if (webViewGone) return
             mainHandler.post {
-                val banner = findViewById<TextView>(R.id.speedBanner)
-                if (banner != null) {
-                    if (speed > 1.0) {
-                        banner.text = "⚡ PEGANDO ATRASO • ${speed}x • atraso ${delaySec}s"
-                        banner.visibility = View.VISIBLE
-                    } else if (delaySec <= 10) {
-                        banner.text = "✅ AO VIVO • atraso ${delaySec}s"
-                        banner.visibility = View.VISIBLE
-                        mainHandler.postDelayed({ banner.visibility = View.GONE }, 8000)
-                    }
+                if (!engineRunning && !webViewGone) {
+                    engineRunning = true
+                    mainHandler.post(engineRunnable)
                 }
             }
         }
 
         @JavascriptInterface
-        fun onError(msg: String) {
-            android.util.Log.w("PlayerActivity", "JS error: $msg")
+        fun onTick(speed: Double, latency: Double, health: Double, isAtLiveHead: Boolean, mode: Int, modeLabel: String) {
+            if (webViewGone) return
+            mainHandler.post {
+                val banner = findViewById<TextView>(R.id.speedBanner) ?: return@post
+                val actualSpeed = Math.round(speed * 100.0) / 100.0
+                val actualLatency = Math.round(latency)
+                val actualHealth = Math.round(health * 10.0) / 10.0
+
+                val displaySpeed = if (actualSpeed <= 1.01) "1.0x" else "${actualSpeed}x"
+                val modeInfo = "$modeLabel • $displaySpeed"
+
+                if (actualSpeed > 1.01) {
+                    banner.text = "⚡ $modeInfo • atraso ${actualLatency}s • buffer ${actualHealth}s"
+                    banner.visibility = View.VISIBLE
+                    mainHandler.removeCallbacks(hideBannerRunnable)
+                } else if (isAtLiveHead && actualLatency <= 10) {
+                    banner.text = "✅ AO VIVO • $modeInfo • atraso ${actualLatency}s"
+                    banner.visibility = View.VISIBLE
+                    mainHandler.removeCallbacks(hideBannerRunnable)
+                    mainHandler.postDelayed(hideBannerRunnable, BANNER_HIDE_DELAY_MS)
+                } else {
+                    banner.text = "⏱️ $modeInfo • atraso ${actualLatency}s • buffer ${actualHealth}s"
+                    banner.visibility = View.VISIBLE
+                }
+            }
+        }
+
+        @JavascriptInterface
+        fun setMode(mode: Int) {
+            if (webViewGone) return
+            switchMode(mode)
+        }
+    }
+
+    private val hideBannerRunnable = Runnable {
+        if (!webViewGone) {
+            findViewById<TextView>(R.id.speedBanner)?.visibility = View.GONE
+        }
+    }
+
+    override fun onPause() {
+        super.onPause()
+        engineRunning = false
+        mainHandler.removeCallbacks(engineRunnable)
+        findViewById<WebView>(R.id.youtubeWebView)?.apply {
+            evaluateJavascript(
+                "if(window.__zeroDelay) { window.__zeroDelay.appliedRate = 1.0; window.__zeroDelay.player && window.__zeroDelay.player.setPlaybackRate(1.0); }",
+                null
+            )
+            onPause()
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        findViewById<WebView>(R.id.youtubeWebView)?.onResume()
+        if (!webViewGone && !engineRunning) {
+            engineRunning = true
+            mainHandler.post(engineRunnable)
         }
     }
 
     override fun onDestroy() {
-        mainHandler.removeCallbacks(speedCheckRunnable)
+        webViewGone = true
+        engineRunning = false
+        mainHandler.removeCallbacksAndMessages(null)
+        findViewById<WebView>(R.id.youtubeWebView)?.destroy()
         super.onDestroy()
     }
 
     override fun onBackPressed() {
-        mainHandler.removeCallbacks(speedCheckRunnable)
-        val webView = findViewById<WebView>(R.id.youtubeWebView)
-        if (webView.canGoBack()) {
-            webView.goBack()
-        } else {
-            super.onBackPressed()
-        }
+        webViewGone = true
+        engineRunning = false
+        mainHandler.removeCallbacksAndMessages(null)
+        super.onBackPressed()
     }
 }
