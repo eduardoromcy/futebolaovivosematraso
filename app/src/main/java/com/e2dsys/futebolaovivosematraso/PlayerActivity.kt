@@ -234,7 +234,8 @@ class PlayerActivity : AppCompatActivity() {
                         return speed;
                     },
                     
-                    liveHoldTick: 0,
+                    seekTick: 0,
+                    firstSeekDone: false,
                     
                     forceSeekToLive: function() {
                         try {
@@ -280,11 +281,15 @@ class PlayerActivity : AppCompatActivity() {
                             
                             ZD.skipIfOverThreshold(ZD.lastLatency);
                             
-                            // Re-seek to live every ~5s (10 ticks) to keep the AO VIVO badge active
-                            ZD.liveHoldTick++;
-                            if (ZD.liveHoldTick >= 10) {
-                                ZD.liveHoldTick = 0;
-                                if (!ZD.isAtLiveHead && ZD.lastLatency > 5) {
+                            // Force ao vivo immediately on first tick, then every ~3s
+                            if (!ZD.firstSeekDone) {
+                                ZD.firstSeekDone = true;
+                                ZD.seekTick = 0;
+                                ZD.forceSeekToLive();
+                            } else {
+                                ZD.seekTick++;
+                                if (ZD.seekTick >= 6) {
+                                    ZD.seekTick = 0;
                                     ZD.forceSeekToLive();
                                 }
                             }
