@@ -67,12 +67,7 @@ class PlayerActivity : AppCompatActivity() {
         setupWebView(webView, progressBar, youtubeUrl)
 
         val wm = findViewById<ImageView>(R.id.watermark)
-        val disp = resources.displayMetrics
-        wm.layoutParams = wm.layoutParams.apply {
-            width = (disp.widthPixels * 0.22).toInt()
-            height = ViewGroup.LayoutParams.WRAP_CONTENT
-        }
-        wm.visibility = View.VISIBLE
+        findViewById<FrameLayout>(R.id.watermarkContainer).visibility = View.VISIBLE
         wm.setOnClickListener { showContactDialog() }
     }
 
@@ -142,6 +137,7 @@ class PlayerActivity : AppCompatActivity() {
                     ViewGroup.LayoutParams.MATCH_PARENT
                 ))
                 findViewById<View>(R.id.topOverlay).visibility = View.GONE
+                findViewById<View>(R.id.watermarkContainer).visibility = View.GONE
                 window.decorView.systemUiVisibility = (
                     View.SYSTEM_UI_FLAG_FULLSCREEN or
                     View.SYSTEM_UI_FLAG_HIDE_NAVIGATION or
@@ -371,16 +367,14 @@ class PlayerActivity : AppCompatActivity() {
                 val actualLatency = Math.round(latency)
                 val actualHealth = Math.round(health * 10.0) / 10.0
 
-                val displaySpeed = if (actualSpeed <= 1.01) "1.0x" else "${actualSpeed}x"
-
                 when (status) {
                     "catching_up" -> {
                         val eta = if (estimatedSecs > 0) " • chegando ~${estimatedSecs}s" else ""
-                        banner.text = "⚡ ACELERANDO • ${displaySpeed} • atraso ${actualLatency}s$eta"
+                        banner.text = "⚡ ACELERANDO • atraso ${actualLatency}s$eta"
                         banner.setBackgroundColor(0xCCFF6600.toInt())
                     }
                     "synced" -> {
-                        banner.text = "✅ AO VIVO • $modeLabel • ${displaySpeed} • atraso ${actualLatency}s"
+                        banner.text = "✅ AO VIVO • $modeLabel • atraso ${actualLatency}s"
                         banner.setBackgroundColor(0xCC00AA00.toInt())
                     }
                     else -> {
@@ -447,6 +441,7 @@ class PlayerActivity : AppCompatActivity() {
         customView = null
         customViewCallback = null
         findViewById<View>(R.id.topOverlay).visibility = View.VISIBLE
+        findViewById<View>(R.id.watermarkContainer).visibility = View.VISIBLE
         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_VISIBLE
     }
 

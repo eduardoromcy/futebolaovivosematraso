@@ -48,7 +48,7 @@
             android:name=".PlayerActivity"
             android:exported="false"
             android:hardwareAccelerated="true"
-            android:screenOrientation="fullSensor"
+            android:screenOrientation="sensorLandscape"
             android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"
             android:theme="@style/Theme.FutebolAoVivoSemAtraso.Player" />
 
