@@ -1,6 +1,7 @@
 package com.e2dsys.futebolaovivosematraso
 
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -67,8 +68,10 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
                     ChannelScreen { videoUrl ->
+                        val isTvDevice = packageManager.hasSystemFeature(PackageManager.FEATURE_LEANBACK)
                         val intent = Intent(this, PlayerActivity::class.java).apply {
                             putExtra("video_url", videoUrl)
+                            putExtra("from_tv", isTvDevice)
                         }
                         startActivity(intent)
                     }
@@ -88,6 +91,7 @@ fun ChannelScreen(onPlay: (String) -> Unit) {
     var showUrlDialog by remember { mutableStateOf(false) }
     var showContact by remember { mutableStateOf(false) }
     val ctx = androidx.compose.ui.platform.LocalContext.current
+    val isTv = ctx.packageManager.hasSystemFeature(PackageManager.FEATURE_LEANBACK)
 
     val scope = rememberCoroutineScope()
 
@@ -208,39 +212,72 @@ fun ChannelScreen(onPlay: (String) -> Unit) {
                 }
 
                 else -> {
-                    PullToRefreshBox(
-                        isRefreshing = isRefreshing,
-                        onRefresh = {
-                            isRefreshing = true
-                            loadStreams()
-                        },
-                        modifier = Modifier.fillMaxSize()
-                    ) {
-                        if (streams.isEmpty()) {
-                            Box(
-                                modifier = Modifier.fillMaxSize(),
-                                contentAlignment = Alignment.Center
-                            ) {
-                                Text(
-                                    text = error ?: "Nenhuma live no momento",
-                                    style = MaterialTheme.typography.bodyLarge,
-                                    color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f),
-                                    textAlign = TextAlign.Center,
-                                    modifier = Modifier.padding(24.dp)
-                                )
-                            }
-                        } else {
-                            LazyColumn(
-                                modifier = Modifier
-                                    .fillMaxSize()
-                                    .padding(12.dp),
-                                verticalArrangement = Arrangement.spacedBy(8.dp)
-                            ) {
-                                items(streams, key = { it.url }) { stream ->
-                                    StreamCard(
-                                        stream = stream,
-                                        onClick = { onPlay(stream.url) }
+                    if (isTv) {
+                        Box(modifier = Modifier.fillMaxSize()) {
+                            if (streams.isEmpty()) {
+                                Box(
+                                    modifier = Modifier.fillMaxSize(),
+                                    contentAlignment = Alignment.Center
+                                ) {
+                                    Text(
+                                        text = error ?: "Nenhuma live no momento",
+                                        style = MaterialTheme.typography.bodyLarge,
+                                        color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f),
+                                        textAlign = TextAlign.Center,
+                                        modifier = Modifier.padding(24.dp)
                                     )
+                                }
+                            } else {
+                                LazyColumn(
+                                    modifier = Modifier
+                                        .fillMaxSize()
+                                        .padding(12.dp),
+                                    verticalArrangement = Arrangement.spacedBy(8.dp)
+                                ) {
+                                    items(streams, key = { it.url }) { stream ->
+                                        StreamCard(
+                                            stream = stream,
+                                            onClick = { onPlay(stream.url) }
+                                        )
+                                    }
+                                }
+                            }
+                        }
+                    } else {
+                        PullToRefreshBox(
+                            isRefreshing = isRefreshing,
+                            onRefresh = {
+                                isRefreshing = true
+                                loadStreams()
+                            },
+                            modifier = Modifier.fillMaxSize()
+                        ) {
+                            if (streams.isEmpty()) {
+                                Box(
+                                    modifier = Modifier.fillMaxSize(),
+                                    contentAlignment = Alignment.Center
+                                ) {
+                                    Text(
+                                        text = error ?: "Nenhuma live no momento",
+                                        style = MaterialTheme.typography.bodyLarge,
+                                        color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f),
+                                        textAlign = TextAlign.Center,
+                                        modifier = Modifier.padding(24.dp)
+                                    )
+                                }
+                            } else {
+                                LazyColumn(
+                                    modifier = Modifier
+                                        .fillMaxSize()
+                                        .padding(12.dp),
+                                    verticalArrangement = Arrangement.spacedBy(8.dp)
+                                ) {
+                                    items(streams, key = { it.url }) { stream ->
+                                        StreamCard(
+                                            stream = stream,
+                                            onClick = { onPlay(stream.url) }
+                                        )
+                                    }
                                 }
                             }
                         }

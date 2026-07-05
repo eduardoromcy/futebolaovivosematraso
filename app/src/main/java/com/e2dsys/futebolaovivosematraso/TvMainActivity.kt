@@ -63,6 +63,7 @@ class TvMainActivity : AppCompatActivity() {
                         startActivity(
                             Intent(this@TvMainActivity, PlayerActivity::class.java).apply {
                                 putExtra("video_url", stream.url)
+                                putExtra("from_tv", true)
                             }
                         )
                     }

@@ -35,7 +35,7 @@ class PlayerActivity : AppCompatActivity() {
 
     private val mainHandler = Handler(Looper.getMainLooper())
     private var engineRunning = false
-    private var currentMode = MODE_AGGRESSIVE
+    private var currentMode = 0
     private var webViewGone = false
     private var customView: View? = null
     private var customViewCallback: WebChromeClient.CustomViewCallback? = null
@@ -53,6 +53,8 @@ class PlayerActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_player)
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
+
+        currentMode = if (intent.getBooleanExtra("from_tv", false)) MODE_BALANCED else MODE_AGGRESSIVE
 
         val youtubeUrl = intent.getStringExtra("video_url") ?: run {
             Toast.makeText(this, "URL não fornecida", Toast.LENGTH_SHORT).show()
