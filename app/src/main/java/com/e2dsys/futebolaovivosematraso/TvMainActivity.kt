@@ -14,6 +14,9 @@ import androidx.leanback.widget.VerticalGridView
 import androidx.recyclerview.widget.RecyclerView
 import com.e2dsys.futebolaovivosematraso.youtube.LiveStreamItem
 import com.e2dsys.futebolaovivosematraso.youtube.YouTubeChannelScraper
+import com.google.firebase.FirebaseApp
+import com.google.firebase.analytics.FirebaseAnalytics
+import com.google.firebase.analytics.ktx.logEvent
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -28,6 +31,14 @@ class TvMainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tv_main)
+
+        try {
+            FirebaseApp.initializeApp(this)
+            val analytics = FirebaseAnalytics.getInstance(this)
+            analytics.logEvent("app_open") {
+                param("device_type", "tv")
+            }
+        } catch (_: Exception) {}
 
         gridView = findViewById(R.id.gridView)
         loadingIndicator = findViewById(R.id.loadingIndicator)

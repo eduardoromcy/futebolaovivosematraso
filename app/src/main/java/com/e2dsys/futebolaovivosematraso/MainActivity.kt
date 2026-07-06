@@ -54,6 +54,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.e2dsys.futebolaovivosematraso.youtube.LiveStreamItem
 import com.e2dsys.futebolaovivosematraso.youtube.YouTubeChannelScraper
+import com.google.firebase.FirebaseApp
+import com.google.firebase.analytics.FirebaseAnalytics
+import com.google.firebase.analytics.ktx.logEvent
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -61,6 +64,15 @@ import kotlinx.coroutines.withContext
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        val isTvDevice = packageManager.hasSystemFeature(PackageManager.FEATURE_LEANBACK)
+        try {
+            FirebaseApp.initializeApp(this)
+            val analytics = FirebaseAnalytics.getInstance(this)
+            analytics.logEvent("app_open") {
+                param("device_type", if (isTvDevice) "tv" else "phone")
+            }
+        } catch (_: Exception) {}
         setContent {
             MaterialTheme {
                 Surface(

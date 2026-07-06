@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "812395576734",
+    "project_id": "cazetv-sempre-aovivo",
+    "storage_bucket": "cazetv-sempre-aovivo.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:812395576734:android:7575b2232421dc12756a8f",
+        "android_client_info": {
+          "package_name": "com.e2dsys.futebolaovivosematraso"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCDbEEZaIy_zZCBT9jlSswDw6oOBYbwDQI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

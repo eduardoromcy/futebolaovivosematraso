@@ -3,6 +3,11 @@
 -dontwarn org.mozilla.javascript.tools.**
 -keep class org.schabi.newpipe.** { *; }
 
+-keep class com.google.firebase.** { *; }
+-keep class com.google.android.gms.** { *; }
+-dontwarn com.google.firebase.**
+-dontwarn com.google.android.gms.**
+
 -dontwarn java.beans.BeanDescriptor
 -dontwarn java.beans.BeanInfo
 -dontwarn java.beans.IntrospectionException
